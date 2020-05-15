@@ -46,12 +46,12 @@ RUN cd ~/temp && wget https://download.pytorch.org/libtorch/$TORCH_CUDA/libtorch
     && cp -r libtorch /usr/local/lib/ 
 
 # Python packages for OpenAI Gym, box2d environment (for LunarLander) and CPU tensorflow    
-RUN pip3 install numpy 'gym[box2d]' tensorflow==1.14 zmq msgpack \
+RUN pip3 install numpy torch torchvision 'gym[atari]' 'gym[box2d]' tensorflow==1.14 tensorboard zmq msgpack \
     && cd /usr/local && git clone https://github.com/openai/baselines.git \
     && cd baselines && pip3 install -e .
 
 # Clean up
-RUN rm -r ~/temp \
+RUN rm -r ~/temp \ 
     && apt-get autoremove -y \
     && apt-get clean -y
 
