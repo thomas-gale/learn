@@ -1,4 +1,4 @@
-#include "gtest.h"
+#include "gtest/gtest.h"
 #include "../src/hello-torch.h"
 
 namespace TestLearn {

@@ -8,6 +8,11 @@ project(learn
 # Project wide C++ standard
 set(CMAKE_CXX_STANDARD 17)
 
+## PyTorch (Docker devcontainer should have already configured this)
+list(APPEND CMAKE_PREFIX_PATH "/usr/local/lib/libtorch")
+find_package(Torch REQUIRED)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
+
 # Recurse into source
 add_subdirectory(src)
 

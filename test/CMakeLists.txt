@@ -38,9 +38,9 @@ add_executable(learn_test
   test-hello-torch.cpp
 )
 
-target_include_directories(learn_test PRIVATE
-  "${gtest_SOURCE_DIR}/include"
-)
+#target_include_directories(learn_test PRIVATE
+#  "${gtest_SOURCE_DIR}/include"
+#)
 
 target_link_libraries(learn_test 
   learn
