@@ -27,7 +27,7 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
 RUN apt-get update \
     && apt-get install -y software-properties-common \
         unzip wget git \
-        build-essential gdb clang \
+        build-essential gdb clang clang-tidy \
         python3-dev python3-pip python-opengl \
         libopenmpi-dev zlib1g-dev libsm6 libxext6 libxrender-dev
 
