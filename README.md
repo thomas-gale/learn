@@ -7,6 +7,7 @@ A personal, experimental dive learning how to build C++ based machine learning s
 - I'm enjoying reading *Reinforcement Learning: An Introduction: Sutton, Barto (2018)*
 - I'm enjoying reading *Deep Reinforcement Learning Hands-On: Maxim Lapan (2018)* (I need to get the second edition)
 - I think that https://gym.openai.com/ is cool
+- I like [bullet](https://github.com/bulletphysics/bullet3) as a simulation environement, maybe even try [godot](https://github.com/godotengine/godot)?
 - I'm a fan of the C++ language ❤️ *Bjarne Stroustrup*
 - I learn by doing e.g. re-writing things from python -> C++
 - PyTorch now has a [wonderful C++ API](https://pytorch.org/cppdocs/)
