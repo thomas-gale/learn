@@ -15,6 +15,7 @@
 		"twxs.cmake",
 		"ms-vscode.cmake-tools",
 		"ms-vscode.cpptools",
+		"ms-python.python",
 		"mitaki28.vscode-clang",
 		"xaver.clang-format",
 		"robbowen.synthwave-vscode" // Very important
