@@ -1,10 +1,10 @@
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
 
 # Global settings
 # Torch 1.4, only has Cuda 10.1 support (I think..)
-ENV CMAKE_VERSION=3.17.1
-ENV TORCH_CUDA=cu101
-ENV TORCH_VERSION=1.4.0
+ENV CMAKE_VERSION=3.17.2
+ENV TORCH_CUDA=cu102
+ENV TORCH_VERSION=1.5.0
 
 # OpenGL - (glvnd)
 RUN apt-get update && apt-get install -y --no-install-recommends \
