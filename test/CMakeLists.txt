@@ -35,7 +35,10 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(learn_test
-  hellotorch_test.cpp
+
+hellotorch_test.cpp
+gym/example_test.cpp
+
 )
 
 #target_include_directories(learn_test PRIVATE
@@ -43,6 +46,7 @@ add_executable(learn_test
 #)
 
 target_link_libraries(learn_test 
+  gym_client
   learn
   gtest_main
 )

@@ -1,0 +1,9 @@
+[submodule "third_party/spdlog"]
+	path = third_party/spdlog
+	url = git@github.com:gabime/spdlog.git
+[submodule "third_party/msgpack-c"]
+	path = third_party/msgpack-c
+	url = git@github.com:msgpack/msgpack-c.git
+[submodule "third_party/libzmq"]
+	path = third_party/libzmq
+	url = git@github.com:zeromq/libzmq.git
