@@ -35,7 +35,7 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(learn_test
-  test-hello-torch.cpp
+  hellotorch_test.cpp
 )
 
 #target_include_directories(learn_test PRIVATE

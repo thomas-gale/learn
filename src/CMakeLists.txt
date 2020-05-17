@@ -1,6 +1,6 @@
 add_library(learn
-  hello-torch.h
-  hello-torch.cpp
+  hellotorch.h
+  hellotorch.cpp
 )
 
 target_compile_options(learn PRIVATE -Wall -Wextra -pedantic)
