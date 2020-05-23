@@ -27,24 +27,17 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
                  ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
                  EXCLUDE_FROM_ALL)
 
-# The gtest/gtest_main targets carry header search path
-# dependencies automatically when using CMake 2.8.11 or
-# later. Otherwise we have to add them here ourselves.
-#if (CMAKE_VERSION VERSION_LESS 2.8.11)
-#endif()
-
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(learn_test
-
-hellotorch_test.cpp
-#gym/example_test.cpp
-
+  hellotorch_test.cpp
+  #gym/example_test.cpp
 )
 
 target_link_libraries(learn_test 
-  gtest_main
   #gym_client
   hellolearn
+  gtest_main
 )
 
-add_test(NAME learn_test COMMAND learn_test)
+# Register test so that ctest and make test can run it.
+add_test(NAME test_learn_test COMMAND learn_test)
