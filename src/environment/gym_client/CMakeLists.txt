@@ -24,4 +24,4 @@ target_include_directories(gym_client
 target_link_libraries(gym_client 
     PRIVATE
     libzmq-static 
-    ${TORCH_INCLUDE_DIRS})
+    ${TORCH_LIBRARIES})

@@ -5,11 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch Tests",
+            "name": "Learn Tests",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/test/learn_test",
-            "args": ["--gtest_filter=*.*"],
+            "args": [
+                "--gtest_filter=GymClient.*"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
@@ -22,6 +24,19 @@
                     "ignoreFailures": true
                 }
             ]
+        },
+        {
+            "name": "Environment Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/environment/launch_gym_server.py",
+            "console": "integratedTerminal"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Learn Tests & Environment Server",
+            "configurations": ["Learn Tests", "Environment Server"]
         }
     ]
 }

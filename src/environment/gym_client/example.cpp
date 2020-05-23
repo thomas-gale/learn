@@ -6,7 +6,7 @@
 
 #include <spdlog/spdlog.h> 
 #include <spdlog/sinks/basic_file_sink.h>
-//#include <ATen/Parallel.h>
+#include <ATen/Parallel.h>
 
 #include "torch/torch.h"
 
@@ -22,7 +22,7 @@ using namespace gym_client;
 namespace learn {
 
 // Algorithm hyperparameters
-const std::string algorithm = "PPO";
+/*const std::string algorithm = "PPO";
 const float actor_loss_coef = 1.0;
 const int batch_size = 40;
 const float clip_param = 0.2;
@@ -39,16 +39,16 @@ const int reward_average_window_size = 10;
 const float reward_clip_value = 100; // Post scaling
 const bool use_gae = true;
 const bool use_lr_decay = false;
-const float value_loss_coef = 0.5;
+const float value_loss_coef = 0.5;*/
 
 // Environment hyperparameters
 const std::string env_name = "LunarLander-v2";
-const int num_envs = 8;
-const float render_reward_threshold = 160;
+const int num_envs = 1;
+//const float render_reward_threshold = 160;
 
 // Model hyperparameters
-const int hidden_size = 64;
-const bool recurrent = false;
+//const int hidden_size = 64;
+//const bool recurrent = false;
 const bool use_cuda = false;
 
 std::vector<float> flatten_vector(std::vector<float> const &input)
@@ -77,7 +77,7 @@ void example()
     spdlog::set_level(spdlog::level::debug);
     spdlog::set_pattern("%^[%T %7l] %v%$");
 
-    //at::set_num_threads(1);
+    at::set_num_threads(1);
     torch::manual_seed(0);
 
     torch::Device device = use_cuda ? torch::kCUDA : torch::kCPU;
@@ -106,6 +106,7 @@ void example()
     Request<ResetParam> reset_request("reset", reset_param);
     communicator.send_request(reset_request);
 
+    // Observation stuff.
     auto observation_shape = env_info->observation_space_shape;
     observation_shape.insert(observation_shape.begin(), num_envs);
     torch::Tensor observation;
@@ -119,6 +120,18 @@ void example()
     {
         observation_vec = flatten_vector(communicator.get_response<MlpResetResponse>()->observation);
         observation = torch::from_blob(observation_vec.data(), observation_shape).to(device);
+    }
+
+    // Action stuff.
+    std::vector<std::vector<float>> actions(num_envs);
+    actions.at(0) = std::vector<float>{0.0, 0.0, 0.0, 0.0};
+
+    auto step_param = std::make_shared<StepParam>();
+    for (auto i = 0; i < 10; ++i) {
+        step_param->render = true;
+        step_param->actions = actions;
+        Request<StepParam> step_request("step", step_param);
+        communicator.send_request(step_request);
     }
 }
 
