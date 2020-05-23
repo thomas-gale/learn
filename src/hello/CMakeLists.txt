@@ -10,7 +10,7 @@ target_compile_options(hellolearn PRIVATE -Wall -Wextra -pedantic)
 
 # We need this directory, and users of our library will need it too
 target_include_directories(hellolearn PUBLIC 
-    ../../include 
+    "${Learn_SOURCE_DIR}/include"
     ${TORCH_INCLUDE_DIRS}
 )
 

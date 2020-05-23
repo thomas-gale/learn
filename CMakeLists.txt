@@ -17,7 +17,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 add_subdirectory(third_party)
 
 # Recurse into src.
-add_subdirectory(src/hello)
+add_subdirectory(src)
 
 # Recurse into tests.
 add_subdirectory(test)
