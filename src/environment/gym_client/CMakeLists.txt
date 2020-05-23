@@ -1,20 +1,27 @@
-add_library(gym_client
-requests.h
-communicator.h
-communicator.cpp
-example.h
-example.cpp
-)
+set(HEADER_LIST "${Learn_SOURCE_DIR}/include/learn/example.h")
 
-find_package(Torch REQUIRED)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
+add_library(gym_client
+    ${HEADER_LIST}
+    requests.h
+    communicator.h
+    communicator.cpp
+    example.cpp)
+
+#target_compile_options(gym_client PRIVATE -Wall -Wextra -pedantic)
+
+# We need this directory, and users of our library will need it too
+target_include_directories(gym_client
+    PUBLIC 
+    "${Learn_SOURCE_DIR}/include"
+    ${TORCH_INCLUDE_DIRS})
 
 target_include_directories(gym_client 
     PRIVATE
     ${MSGPACK_DIR}/include
     ${SPDLOG_DIR}/include
-    ${ZMQ_DIR}/include
-    ${TORCH_INCLUDE_DIRS}
-)
+    ${ZMQ_DIR}/include)
 
-target_link_libraries(gym_client PRIVATE libzmq-static ${TORCH_INCLUDE_DIRS})
+target_link_libraries(gym_client 
+    PRIVATE
+    libzmq-static 
+    ${TORCH_INCLUDE_DIRS})
