@@ -1,12 +1,12 @@
-add_library(learn
+add_subdirectory(gym/gym_client)
+
+add_library(hellolearn
 hellotorch.h
 hellotorch.cpp
 )
 
-target_compile_options(learn PRIVATE -Wall -Wextra -pedantic)
+target_compile_options(hellolearn PRIVATE -Wall -Wextra -pedantic)
 
-target_include_directories(learn PRIVATE ${TORCH_INCLUDE_DIRS})
-
-target_link_libraries(learn ${TORCH_LIBRARIES})
-
-add_subdirectory(gym/gym_client)
+find_package(Torch REQUIRED)
+target_include_directories(hellolearn PUBLIC ${TORCH_INCLUDE_DIRS})
+target_link_libraries(hellolearn ${TORCH_LIBRARIES})
