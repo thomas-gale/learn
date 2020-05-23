@@ -37,18 +37,14 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 add_executable(learn_test
 
 hellotorch_test.cpp
-gym/example_test.cpp
+#gym/example_test.cpp
 
 )
 
-#target_include_directories(learn_test PRIVATE
-#  "${gtest_SOURCE_DIR}/include"
-#)
-
 target_link_libraries(learn_test 
-  gym_client
-  learn
   gtest_main
+  #gym_client
+  hellolearn
 )
 
 add_test(NAME learn_test COMMAND learn_test)

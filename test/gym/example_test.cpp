@@ -4,6 +4,6 @@
 namespace TestLearn {
     TEST(GymClient, RunExample) {
         // Act
-        Learn::example();
+        learn::example();
     }
 }
