@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../../src/gym/gym_client/example.h"
+#include "learn/example.h"
 
 namespace TestLearn {
     TEST(GymClient, RunExample) {
