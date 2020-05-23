@@ -124,7 +124,8 @@ void example()
 
     // Action stuff.
     std::vector<std::vector<float>> actions(num_envs);
-    actions.at(0) = std::vector<float>{0.0, 0.0, 0.0, 0.0};
+    // Discrete  Nop, fire left engine, main engine, right engine
+    actions.at(0) = std::vector<float>{1.0, 0.0, 0.0, 0.0};
 
     auto step_param = std::make_shared<StepParam>();
     for (auto i = 0; i < 10; ++i) {

@@ -107,7 +107,7 @@ class Server:
         Steps the environments.
         """
         if isinstance(self.env.action_space, gym.spaces.Discrete):
-            actions = actions.squeeze(-1)
+            actions = np.squeeze(actions)
             actions = actions.astype(np.int)
         observation, reward, done, info = self.env.step(actions)
         reward = np.expand_dims(reward, -1)
