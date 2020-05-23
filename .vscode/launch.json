@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/test/learn_test",
-            "args": [],
+            "args": ["--gtest_filter=*.*"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
