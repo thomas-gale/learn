@@ -3,6 +3,7 @@
 #include <string.h>
 #include <chrono>
 #include <fstream>
+#include <thread>
 
 #include <spdlog/spdlog.h> 
 #include <spdlog/sinks/basic_file_sink.h>
@@ -125,14 +126,17 @@ void example()
     // Action stuff.
     std::vector<std::vector<float>> actions(num_envs);
     // Discrete  Nop, fire left engine, main engine, right engine
-    actions.at(0) = std::vector<float>{1.0, 0.0, 0.0, 0.0};
+    actions.at(0) = std::vector<float>{0.0};
 
     auto step_param = std::make_shared<StepParam>();
-    for (auto i = 0; i < 10; ++i) {
+
+    while(true) {
         step_param->render = true;
         step_param->actions = actions;
         Request<StepParam> step_request("step", step_param);
         communicator.send_request(step_request);
+        using namespace std::chrono_literals;
+        std::this_thread::sleep_for(0.02s);
     }
 }
 

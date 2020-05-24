@@ -51,7 +51,9 @@ RUN pip3 install numpy torch torchvision tensorflow==1.14 tensorboard zmq msgpac
     && git clone https://github.com/openai/gym.git \
     && git clone https://github.com/openai/baselines.git \
     && cd baselines && pip3 install -e . && cd .. \
-    && cd gym && pip3 install -e '.[box2d]'
+    && cd gym \
+    && pip3 install -e '.[box2d]' \
+    && pip3 install -e '.[atari]'
 
 # Clean up
 RUN rm -r ~/temp \ 
