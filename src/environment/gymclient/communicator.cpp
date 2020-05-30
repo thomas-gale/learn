@@ -5,7 +5,7 @@
 
 #include "communicator.h"
 #include "requests.h"
-#include "third_party/zmq.hpp"
+#include "zmq.hpp"
 
 namespace gym_client
 {

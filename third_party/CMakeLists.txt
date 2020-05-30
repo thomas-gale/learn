@@ -6,6 +6,10 @@ set(ZMQ_DIR ${3P_DIR}/libzmq CACHE STRING "")
 option(ZMQ_BUILD_TESTS "" OFF)
 add_subdirectory(libzmq)
 
+# C++ adapted wrapper around libzmq
+set(ZMQCPP_DIR ${3P_DIR}/zmqcpp CACHE STRING "")
+add_subdirectory(zmqcpp)
+
 # MessagePack is an efficient binary serialization format - https://github.com/msgpack/msgpack-c
 set(MSGPACK_DIR ${3P_DIR}/msgpack-c CACHE STRING "")
 

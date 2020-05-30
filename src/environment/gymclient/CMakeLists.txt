@@ -19,9 +19,9 @@ target_include_directories(gymclient
     PRIVATE
     ${MSGPACK_DIR}/include
     ${SPDLOG_DIR}/include
-    ${ZMQ_DIR}/include)
+    ${ZMQCPP_DIR})
 
 target_link_libraries(gymclient 
     PRIVATE
-    libzmq-static 
+    zmqcpp
     ${TORCH_LIBRARIES})
