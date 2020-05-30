@@ -31,4 +31,4 @@ std::string Communicator::get_raw_response()
 
     return response;
 }
-}
+} // namespace communicator

@@ -62,4 +62,4 @@ class Communicator
     std::unique_ptr<zmq::context_t> context;
     std::unique_ptr<zmq::socket_t> socket;
 };
-}
+} // namespace communicator
