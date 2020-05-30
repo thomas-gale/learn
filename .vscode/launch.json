@@ -36,8 +36,8 @@
     ],
     "compounds": [
         {
-            "name": "Learn Tests & Environment Server",
-            "configurations": ["Learn Tests", "Environment Server"]
+            "name": "Environment Server & Learn Tests",
+            "configurations": ["Environment Server", "Learn Tests"]
         }
     ]
 }

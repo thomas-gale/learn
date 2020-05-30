@@ -4,6 +4,6 @@
 namespace TestLearn {
     TEST(HelloTorch, FirstTest) {
         // Act
-        Learn::hellotorch();
+        learn::hellotorch();
     }
 }
