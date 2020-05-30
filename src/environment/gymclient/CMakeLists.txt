@@ -2,9 +2,6 @@ set(HEADER_LIST "${Learn_SOURCE_DIR}/include/learn/example.h")
 
 add_library(gymclient
     ${HEADER_LIST}
-    requests.h
-    communicator.h
-    communicator.cpp
     example.cpp)
 
 #target_compile_options(gym_client PRIVATE -Wall -Wextra -pedantic)
@@ -24,4 +21,5 @@ target_include_directories(gymclient
 target_link_libraries(gymclient 
     PRIVATE
     zmqcpp
+    communicator
     ${TORCH_LIBRARIES})

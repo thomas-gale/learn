@@ -14,8 +14,8 @@
 //#include <cpprl/cpprl.h>
 //#include 
 
-#include "communicator.h"
-#include "requests.h"
+#include "learn/communicator/communicator.h"
+#include "learn/communicator/requests.h"
 
 using namespace gym_client;
 //using namespace cpprl;

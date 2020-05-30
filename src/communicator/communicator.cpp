@@ -3,8 +3,8 @@
 
 #include <spdlog/spdlog.h>
 
-#include "communicator.h"
-#include "requests.h"
+#include "learn/communicator/communicator.h"
+#include "learn/communicator/requests.h"
 #include "zmq.hpp"
 
 namespace gym_client
