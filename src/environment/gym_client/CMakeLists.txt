@@ -1,6 +1,6 @@
 set(HEADER_LIST "${Learn_SOURCE_DIR}/include/learn/example.h")
 
-add_library(gym_client
+add_library(gymclient
     ${HEADER_LIST}
     requests.h
     communicator.h
@@ -10,18 +10,18 @@ add_library(gym_client
 #target_compile_options(gym_client PRIVATE -Wall -Wextra -pedantic)
 
 # We need this directory, and users of our library will need it too
-target_include_directories(gym_client
+target_include_directories(gymclient
     PUBLIC 
     "${Learn_SOURCE_DIR}/include"
     ${TORCH_INCLUDE_DIRS})
 
-target_include_directories(gym_client 
+target_include_directories(gymclient 
     PRIVATE
     ${MSGPACK_DIR}/include
     ${SPDLOG_DIR}/include
     ${ZMQ_DIR}/include)
 
-target_link_libraries(gym_client 
+target_link_libraries(gymclient 
     PRIVATE
     libzmq-static 
     ${TORCH_LIBRARIES})

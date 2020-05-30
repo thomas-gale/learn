@@ -35,7 +35,7 @@ add_executable(learn_test
 target_link_libraries(learn_test
   PRIVATE
   hellolearn
-  gym_client
+  gymclient
   gtest_main)
 
 # Register test so that ctest and make test can run it.
