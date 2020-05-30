@@ -30,7 +30,8 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/src/environment/launch_gym_server.py",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env"
         }
     ],
     "compounds": [

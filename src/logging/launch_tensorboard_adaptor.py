@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 """
-Pytorch-cpp-rl OpenAI gym server main script.
+learn - Tensorboard server.
 """
-import logging
 
-from gym_server.server import Server
-from messaging.zmq_client import ZmqClient
+from tensorboard_server.server import Server
+from tensorboard_server.zmq_client import ZmqClient
 
 
 def main():
@@ -22,7 +21,7 @@ def main():
                         format=('%(asctime)s %(funcName)s '
                                 '[%(levelname)s]: %(message)s'),
                         datefmt='%Y%m%d %H:%M:%S')
-    logging.info("Initializing gym server")
+    logging.info("Initializing tensorboard server")
 
     zmq_client = ZmqClient(10201)
     logging.info("Connecting to client")

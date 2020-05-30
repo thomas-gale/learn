@@ -1,20 +1,9 @@
 """
 Contains a class that trains an agent.
 """
-import logging
-from typing import Tuple
-import numpy as np
-import gym
-
-from gym_server.envs import make_vec_envs
-
-from messaging.messages import (InfoMessage, MakeMessage, ResetMessage,
+from gym_server.messages import (InfoMessage, MakeMessage, ResetMessage,
                                  StepMessage)
-
-from messaging.zmq_client import ZmqClient
-
-
-RUNNING_REWARD_HORIZON = 10
+from gym_server.zmq_client import ZmqClient
 
 
 class Server:
