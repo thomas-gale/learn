@@ -4,7 +4,7 @@
 
 #include <msgpack.hpp>
 
-namespace gym_client
+namespace communicator
 {
 template <class T>
 struct Request

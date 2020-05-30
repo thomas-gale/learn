@@ -16,8 +16,8 @@
 
 #include "learn/communicator/communicator.h"
 #include "learn/communicator/requests.h"
+using namespace communicator;
 
-using namespace gym_client;
 //using namespace cpprl;
 
 namespace learn {

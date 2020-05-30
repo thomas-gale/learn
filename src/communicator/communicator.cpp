@@ -7,7 +7,7 @@
 #include "learn/communicator/requests.h"
 #include "zmq.hpp"
 
-namespace gym_client
+namespace communicator
 {
 Communicator::Communicator(const std::string &url)
 {

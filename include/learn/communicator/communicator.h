@@ -12,7 +12,7 @@
 #include "requests.h"
 #include "zmq.hpp"
 
-namespace gym_client
+namespace communicator
 {
 class Communicator
 {
