@@ -16,6 +16,19 @@ struct Request
     MSGPACK_DEFINE_MAP(method, param)
 };
 
+// Test Section
+struct LogScalarParam {    
+    std::string tag;
+    double scalar_value;
+    double global_step;
+    MSGPACK_DEFINE_MAP(tag, scalar_value, global_step);
+};
+
+struct LogResponse {
+    bool success;
+    MSGPACK_DEFINE_MAP(success);
+};
+
 struct InfoParam
 {
     int x;

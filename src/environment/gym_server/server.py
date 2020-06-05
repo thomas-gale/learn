@@ -118,6 +118,7 @@ class Server:
             self.env.render()
         return observation, reward, done, info
 
+    # Using name-mangling - should this stay (seems confusing and messy)?
     __info = info
     __make = make
     __reset = reset

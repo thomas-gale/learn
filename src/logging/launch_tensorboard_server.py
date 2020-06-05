@@ -2,9 +2,11 @@
 """
 learn - Tensorboard server.
 """
+import sys, traceback
+import logging
 
 from tensorboard_server.server import Server
-from tensorboard_server.zmq_client import ZmqClient
+from messaging.zmq_client import ZmqClient
 
 
 def main():
@@ -23,7 +25,7 @@ def main():
                         datefmt='%Y%m%d %H:%M:%S')
     logging.info("Initializing tensorboard server")
 
-    zmq_client = ZmqClient(10201)
+    zmq_client = ZmqClient(10202)
     logging.info("Connecting to client")
     zmq_client.send("Connection established")
     logging.info("Connected")
@@ -32,8 +34,9 @@ def main():
     try:
         server.serve()
     except:  # pylint: disable=bare-except
-        import pdb
-        pdb.post_mortem()
+        traceback.print_exc(file=sys.stdout)
+        #import pdb
+        #pdb.post_mortem()
 
 
 if __name__ == '__main__':
