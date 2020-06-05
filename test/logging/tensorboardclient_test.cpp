@@ -7,8 +7,14 @@ namespace testlearn {
         ASSERT_NO_THROW(learn::SummaryWriter summaryWriter);        
     }
     
-    /*TEST(SummaryWriter, CanLogScalar) {
+    TEST(Logging, CanLogScalar) {
+        // Arrange
+        learn::SummaryWriter summaryWriter;
+
         // Act
-        learn::example();
-    }*/
+        bool success = summaryWriter.addScalar("TestScalar", 0.5, 0.25);
+
+        // Assert
+        ASSERT_TRUE(success);
+    }
 }

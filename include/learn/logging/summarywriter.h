@@ -7,10 +7,8 @@ namespace learn {
 
 class SummaryWriter {
 public:
-    void addScalar(std::string name, double y, double x);
-
-
+    bool addScalar(std::string name, double y, double x);
 };
-} // namespace learn 
 
+} // namespace learn 
 #endif // _LEARN_LOGGING_SUMMARYWRITER

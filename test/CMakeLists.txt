@@ -37,6 +37,7 @@ target_link_libraries(learn_test
   PRIVATE
   hellolearn
   gymclient
+  tensorboardclient
   gtest_main)
 
 # Register test so that ctest and make test can run it.
