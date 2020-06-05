@@ -2,12 +2,17 @@
 #define _LEARN_LOGGING_SUMMARYWRITER
 
 #include <string>
+#include "../communicator/communicator.h"
 
 namespace learn {
 
 class SummaryWriter {
 public:
-    bool addScalar(std::string name, double y, double x);
+    SummaryWriter();
+    bool addScalar(std::string tag, double scalarValue, double globalStep);
+
+private:
+    communicator::Communicator tensorboardWriter;
 };
 
 } // namespace learn 

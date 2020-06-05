@@ -33,6 +33,12 @@ add_executable(learn_test
   environment/example_test.cpp
   logging/tensorboardclient_test.cpp)
 
+target_include_directories(learn_test 
+  PRIVATE
+  ${MSGPACK_DIR}/include
+  ${SPDLOG_DIR}/include
+  ${ZMQCPP_DIR})
+
 target_link_libraries(learn_test
   PRIVATE
   hellolearn

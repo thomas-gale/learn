@@ -19,7 +19,10 @@ target_include_directories(tensorboardclient
     ${ZMQCPP_DIR})
 
 target_link_libraries(tensorboardclient 
+    PUBLIC
+    zmqcpp)
+
+target_link_libraries(tensorboardclient 
     PRIVATE
-    zmqcpp
     communicator
     ${TORCH_LIBRARIES})

@@ -37,12 +37,9 @@ class Server:
             param = request['param']
 
             if method == 'add_scalar':
-                logging.info("Logging scalar...")
                 self.writer.add_scalar(param['tag'], param['scalar_value'], param['global_step'])
-                logging.info("Logged scalar")
-                logging.info("Sending confirmation...")
+                self.writer.flush()
                 self.zmq_client.send(LogConfirmation(True))
-                logging.info("Sent confirmation")
 
             elif method == 'add_image':
                 # Add the image to tensorboard
