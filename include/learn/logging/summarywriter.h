@@ -10,6 +10,7 @@ class SummaryWriter {
 public:
     SummaryWriter();
     bool addScalar(std::string tag, double scalarValue, double globalStep);
+    bool addImage(std::string tag, double imageTensor, double globalStep);
 
 private:
     communicator::Communicator tensorboardWriter;

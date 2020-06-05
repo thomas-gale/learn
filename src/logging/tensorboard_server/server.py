@@ -42,7 +42,7 @@ class Server:
                 self.zmq_client.send(LogConfirmation(True))
 
             elif method == 'add_image':
-                # Add the image to tensorboard
+                self.writer.add_image(param['tag'], param['img_tensor'], param['global_step'])
                 self.zmq_client.send(LogConfirmation(True))
 
     # Using name-mangling - should this stay (seems confusing and messy)?

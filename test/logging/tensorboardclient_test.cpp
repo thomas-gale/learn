@@ -17,4 +17,15 @@ namespace testlearn {
         // Assert
         ASSERT_TRUE(success);
     }
+
+    TEST(Logging, CanLogImage) {
+        // Arrange
+        learn::SummaryWriter summaryWriter;
+
+        // Act
+        bool success = summaryWriter.addImage("TestScalar", 0.5, 0.25);
+
+        // Assert
+        ASSERT_TRUE(success);
+    }
 }

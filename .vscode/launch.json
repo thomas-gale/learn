@@ -4,13 +4,14 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Learn Tests",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/test/learn_test",
             "args": [
-                "--gtest_filter=GymClient.*"
+                "--gtest_filter=Logging.CanLogImage"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -32,12 +33,20 @@
             "program": "${workspaceFolder}/src/environment/launch_gym_server.py",
             "console": "integratedTerminal",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Logging Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/logging/launch_tensorboard_server.py",
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env"
         }
     ],
-    "compounds": [
+    /*"compounds": [
         {
             "name": "Environment Server & Learn Tests",
             "configurations": ["Environment Server", "Learn Tests"]
         }
-    ]
+    ]*/
 }

@@ -16,18 +16,29 @@ struct Request
     MSGPACK_DEFINE_MAP(method, param)
 };
 
-// Test Section
-struct LogScalarParam {    
+// Logging Section
+
+struct Param {    
     std::string tag;
-    double scalar_value;
     double global_step;
+};
+
+struct ScalarParam : Param {    
+    double scalar_value;
     MSGPACK_DEFINE_MAP(tag, scalar_value, global_step);
+};
+
+struct ImageParam : Param {    
+    std::vector<std::vector<float>> img_tensor;
+    MSGPACK_DEFINE_MAP(tag, img_tensor, global_step);
 };
 
 struct LogResponse {
     bool success;
     MSGPACK_DEFINE_MAP(success);
 };
+
+// Environment Section
 
 struct InfoParam
 {

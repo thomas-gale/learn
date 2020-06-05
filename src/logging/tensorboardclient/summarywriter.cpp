@@ -11,17 +11,23 @@ namespace learn {
 
     bool SummaryWriter::addScalar(std::string tag, double scalarValue, double globalStep) {
         // Talk to tensorboard server code python though zmq.
-        auto scalarParam = std::make_shared<com::LogScalarParam>();
+        auto scalarParam = std::make_shared<com::ScalarParam>();
         scalarParam->tag = tag;
         scalarParam->scalar_value = scalarValue;
         scalarParam->global_step = globalStep;
-        com::Request<com::LogScalarParam> addScalarRequest("add_scalar", scalarParam);
+        com::Request<com::ScalarParam> addScalarRequest("add_scalar", scalarParam);
 
         // Outbound message
         tensorboardWriter.send_request(addScalarRequest);
 
         // Request status
         return tensorboardWriter.get_response<com::LogResponse>()->success;
+    }
+
+    bool SummaryWriter::addImage(std::string tag, double imageTensor, double globalStep) {
+        // TODO 
+
+        return false;
     }
 
 } // namespace learn 

@@ -16,6 +16,3 @@ set(MSGPACK_DIR ${3P_DIR}/msgpack-c CACHE STRING "")
 # Fast C++ logging library - https://github.com/gabime/spdlog
 set(SPDLOG_DIR ${3P_DIR}/spdlog CACHE STRING "")
 add_subdirectory(spdlog)
-
-# C++ wrapper for Tensorboard - https://github.com/RustingSword/tensorboard_logger
-set(TENSLOG_DIR ${3P_DIR}/tensorboard_logger CACHE STRING "")
