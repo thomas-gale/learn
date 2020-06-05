@@ -5,6 +5,7 @@ FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
 ENV CMAKE_VERSION=3.17.2
 ENV TORCH_CUDA=cu102
 ENV TORCH_VERSION=1.5.0
+ENV PROTO_VERSON=3.12.3
 
 # OpenGL - (glvnd)
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -54,6 +55,13 @@ RUN pip3 install numpy torch torchvision tensorflow==1.14 tensorboard zmq msgpac
     && cd gym \
     && pip3 install -e '.[box2d]' \
     && pip3 install -e '.[atari]'
+
+# Protocol buffers compiler - protoc
+RUN cd ~/temp && wget https://github.com/protocolbuffers/protobuf/releases/download/v$PROTO_VERSON/protoc-$PROTO_VERSON-linux-x86_64.zip \
+    && unzip protoc-$PROTO_VERSON-linux-x86_64.zip -d protoc \
+    && cp -r protoc/bin/* /usr/local/bin/ \
+    && cp -r protoc/include/* /usr/local/include/ \
+    && chmod +x /usr/local/bin/protoc    
 
 # Clean up
 RUN rm -r ~/temp \ 
