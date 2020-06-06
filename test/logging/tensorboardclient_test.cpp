@@ -21,9 +21,10 @@ namespace testlearn {
     TEST(Logging, CanLogImage) {
         // Arrange
         learn::SummaryWriter summaryWriter;
+        std::vector<std::vector<float>> testImage{{ 0.1, 0.6 }, {0.4, 0.6}};
 
         // Act
-        bool success = summaryWriter.addImage("TestScalar", 0.5, 0.25);
+        bool success = summaryWriter.addImage("TestImage", testImage, 0.25);
 
         // Assert
         ASSERT_TRUE(success);

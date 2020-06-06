@@ -24,10 +24,19 @@ namespace learn {
         return tensorboardWriter.get_response<com::LogResponse>()->success;
     }
 
-    bool SummaryWriter::addImage(std::string tag, double imageTensor, double globalStep) {
-        // TODO 
+    bool SummaryWriter::addImage(std::string tag, const std::vector<std::vector<float>>& imageTensor, double globalStep) {
+        // Talk to tensorboard server code python though zmq.
+        auto imageParam = std::make_shared<com::ImageParam>();
+        imageParam->tag = tag;
+        imageParam->img_tensor = imageTensor;
+        imageParam->global_step = globalStep;
+        com::Request<com::ImageParam> addImageRequest("add_image", imageParam);
 
-        return false;
+        // Outbound message
+        tensorboardWriter.send_request(addImageRequest);
+
+        // Request status
+        return tensorboardWriter.get_response<com::LogResponse>()->success;
     }
 
 } // namespace learn 
