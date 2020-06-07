@@ -1,6 +1,7 @@
 """
 Contains a simple server class which will interoperate with tensorboard
 """
+import datetime
 import logging
 
 import numpy as np
@@ -18,7 +19,7 @@ class Server:
     def __init__(self, zmq_client: ZmqClient):
         self.zmq_client: ZmqClient = zmq_client
         # Currently not closing this after class is disposed (assumming long lived singleton)
-        self.writer: SummaryWriter = SummaryWriter(log_dir="/workspaces/learn/build/logs")
+        self.writer: SummaryWriter = SummaryWriter(log_dir="/workspaces/learn/build/logs/" + datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
         logging.info("Tensorboard server initialized")
 
     def serve(self):
