@@ -6,6 +6,8 @@
 
 namespace learn {
 
+constexpr int LOGGING_PORT = 10202;
+
 class SummaryWriter {
 public:
     SummaryWriter();

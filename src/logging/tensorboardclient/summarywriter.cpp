@@ -7,7 +7,7 @@ namespace com = communicator;
 namespace learn {
 
     // TODO: Remove the magic string.
-    SummaryWriter::SummaryWriter(): tensorboardWriter("tcp://127.0.0.1:10202") {}
+    SummaryWriter::SummaryWriter(): tensorboardWriter("tcp://127.0.0.1:" + std::to_string(LOGGING_PORT)) {} 
 
     bool SummaryWriter::addScalar(std::string tag, double scalarValue, double globalStep) {
         // Talk to tensorboard server code python though zmq.
