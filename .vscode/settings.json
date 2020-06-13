@@ -1,5 +1,12 @@
 {
     "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/include/**",
+        "${workspaceFolder}/src/**",
+        "${workspaceFolder}/test/**",
+        "${workspaceFolder}/third_party/**",
+        "${workspaceFolder}/build/test/googletest-src/googletest/include/**",
+    ],
     "files.associations": {
         "any": "cpp",
         "array": "cpp",
