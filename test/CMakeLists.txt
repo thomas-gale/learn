@@ -32,7 +32,8 @@ add_executable(learn_test
   hello/hellotorch_test.cpp
   environment/example_test.cpp
   logging/tensorboardclient_test.cpp
-  deeprlbook/chapter03/tensorboard.cpp)
+  deeprlbook/chapter03/tensorboard.cpp
+  deeprlbook/chapter03/atarigan.cpp)
 
 target_include_directories(learn_test 
   PRIVATE

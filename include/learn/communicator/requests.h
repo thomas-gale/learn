@@ -28,8 +28,9 @@ struct ScalarParam : Param {
     MSGPACK_DEFINE_MAP(tag, scalar_value, global_step);
 };
 
-struct ImageParam : Param {    
-    std::vector<std::vector<float>> img_tensor;
+struct ImageParam : Param {
+    // Shape(3, H, W)
+    std::vector<std::vector<std::vector<float>>> img_tensor;
     MSGPACK_DEFINE_MAP(tag, img_tensor, global_step);
 };
 

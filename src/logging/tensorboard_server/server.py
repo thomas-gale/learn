@@ -6,6 +6,7 @@ import logging
 
 import numpy as np
 from torch.utils.tensorboard import SummaryWriter
+import torchvision.utils as vutils
 from tensorboard_server.messages import LogConfirmation
 from messaging.zmq_client import ZmqClient
 
@@ -44,7 +45,7 @@ class Server:
                 self.zmq_client.send(LogConfirmation(True))
 
             elif method == 'add_image':
-                self.writer.add_image(param['tag'], np.array(param['img_tensor']), param['global_step'])
+                self.writer.add_image(param['tag'], np.array(param['img_tensor']), param['global_step'], dataformats='HWC')
                 self.writer.flush()
                 self.zmq_client.send(LogConfirmation(True))
 

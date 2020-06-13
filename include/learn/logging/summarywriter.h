@@ -11,8 +11,13 @@ constexpr int LOGGING_PORT = 10202;
 class SummaryWriter {
 public:
     SummaryWriter();
+    
     bool addScalar(std::string tag, double scalarValue, double globalStep);
-    bool addImage(std::string tag, const std::vector<std::vector<float>>& imageTensor, double globalStep);
+    
+    /**
+     *  Shape is (H, W, C(3))
+     */
+    bool addImage(std::string tag, const std::vector<std::vector<std::vector<float>>>& imageTensor, double globalStep);
 
 private:
     communicator::Communicator tensorboardWriter;

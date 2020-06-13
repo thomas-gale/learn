@@ -24,7 +24,7 @@ namespace learn {
         return tensorboardWriter.get_response<com::LogResponse>()->success;
     }
 
-    bool SummaryWriter::addImage(std::string tag, const std::vector<std::vector<float>>& imageTensor, double globalStep) {
+    bool SummaryWriter::addImage(std::string tag, const std::vector<std::vector<std::vector<float>>>& imageTensor, double globalStep) {
         // Talk to tensorboard server code python though zmq.
         auto imageParam = std::make_shared<com::ImageParam>();
         imageParam->tag = tag;

@@ -11,7 +11,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/test/learn_test",
             "args": [
-                "--gtest_filter=DRLChapter03.*"
+                "--gtest_filter=Logging.CanLogImage"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
