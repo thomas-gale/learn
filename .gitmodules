@@ -7,3 +7,6 @@
 [submodule "third_party/libzmq"]
 	path = third_party/libzmq
 	url = git@github.com:zeromq/libzmq.git
+[submodule "third_party/gymcpp"]
+	path = third_party/gymcpp
+	url = git@github.com:thomas-gale/gymcpp.git
