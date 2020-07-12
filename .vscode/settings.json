@@ -1,5 +1,5 @@
 {
-    "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     "C_Cpp.default.includePath": [
         "${workspaceFolder}/include/**",
         "${workspaceFolder}/src/**",
@@ -7,6 +7,9 @@
         "${workspaceFolder}/third_party/**",
         "${workspaceFolder}/build/test/googletest-src/googletest/include/**",
     ],
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "window.zoomLevel": 0,
     "files.associations": {
         "any": "cpp",
         "array": "cpp",

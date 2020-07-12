@@ -18,6 +18,7 @@
 		"ms-python.python",
 		"mitaki28.vscode-clang",
 		"xaver.clang-format",
+		"notskm.clang-tidy",
 		"robbowen.synthwave-vscode" // Very important
 	],
 
