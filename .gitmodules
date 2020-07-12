@@ -13,3 +13,6 @@
 [submodule "third_party/tensorboard_logger"]
 	path = third_party/tensorboard_logger
 	url = git@github.com:thomas-gale/tensorboard_logger.git
+[submodule "lib/gymcpp"]
+	path = lib/gymcpp
+	url = git@github.com:thomas-gale/gymcpp.git
