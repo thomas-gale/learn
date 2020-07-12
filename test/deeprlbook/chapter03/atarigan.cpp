@@ -1,9 +1,9 @@
 #include "gtest/gtest.h"
 
 #include <cmath>
-#include "learn/logging/summarywriter.h"
+//#include "learn/logging/summarywriter.h"
 
-using namespace learn;
+//using namespace learn;
 
 namespace testlearn {
 

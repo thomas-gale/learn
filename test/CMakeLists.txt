@@ -32,7 +32,6 @@ add_executable(learn_test
   hello/hellotorch_test.cpp
   environment/example_test.cpp
   logging/tensorboardlogger_test.cpp
-  deeprlbook/chapter03/tensorboard.cpp
   deeprlbook/chapter03/atarigan.cpp)
 
 target_include_directories(learn_test 
@@ -47,7 +46,6 @@ target_link_libraries(learn_test
   PRIVATE
   hellolearn
   gymclient
-  tensorboardclient
   tensorboard_logger  
   gtest_main)
 
