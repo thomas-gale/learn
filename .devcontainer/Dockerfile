@@ -43,7 +43,7 @@ RUN mkdir -p ~/temp \
 
 # Torch C++ (CUDA) 
 RUN cd ~/temp && wget https://download.pytorch.org/libtorch/$TORCH_CUDA/libtorch-cxx11-abi-shared-with-deps-$TORCH_VERSION.zip \
-    && unzip libtorch-shared-with-deps-$TORCH_VERSION.zip \
+    && unzip libtorch-cxx11-abi-shared-with-deps-$TORCH_VERSION.zip \
     && cp -r libtorch /usr/local/lib/ 
 
 # Python packages just to run tensorboard
