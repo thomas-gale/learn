@@ -42,19 +42,22 @@ RUN mkdir -p ~/temp \
     && cmake --version
 
 # Torch C++ (CUDA) 
-RUN cd ~/temp && wget https://download.pytorch.org/libtorch/$TORCH_CUDA/libtorch-shared-with-deps-$TORCH_VERSION.zip \
+RUN cd ~/temp && wget https://download.pytorch.org/libtorch/$TORCH_CUDA/libtorch-cxx11-abi-shared-with-deps-$TORCH_VERSION.zip \
     && unzip libtorch-shared-with-deps-$TORCH_VERSION.zip \
     && cp -r libtorch /usr/local/lib/ 
 
+# Python packages just to run tensorboard
+RUN pip3 install numpy==1.19.0 pillow==7.1.2 six==1.12.0 tensorboard==2.2.2
+
 # Python packages for OpenAI Gym, box2d environment (for LunarLander) and CPU tensorflow    
-RUN pip3 install numpy pillow six torch torchvision tensorflow==1.14 tensorboard zmq msgpack \
-    && cd /usr/local \
-    && git clone https://github.com/openai/baselines.git \
-    && cd baselines && pip3 install -e . && cd .. \
-    && git clone https://github.com/openai/gym.git \
-    && cd gym \
-    && pip3 install -e '.[box2d]' \
-    && pip3 install -e '.[atari]'
+#RUN pip3 install numpy=1.19.0 pillow=7.1.2 six==1.12.0 torch torchvision tensorflow==1.14 tensorboard==2.2.2 zmq msgpack \
+#    && cd /usr/local \
+#    && git clone https://github.com/openai/baselines.git \
+#    && cd baselines && pip3 install -e . && cd .. \
+#    && git clone https://github.com/openai/gym.git \
+#    && cd gym \
+#    && pip3 install -e '.[box2d]' \
+#    && pip3 install -e '.[atari]'
 
 # Protocolbuffers & compiler
 # https://github.com/protocolbuffers/protobuf/blob/master/src/README.md#c-installation---unix
