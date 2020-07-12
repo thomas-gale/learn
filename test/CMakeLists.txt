@@ -31,7 +31,6 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 add_executable(learn_test
   hello/hellotorch_test.cpp
   environment/example_test.cpp
-  logging/tensorboardclient_test.cpp # Deprecated.
   logging/tensorboardlogger_test.cpp
   deeprlbook/chapter03/tensorboard.cpp
   deeprlbook/chapter03/atarigan.cpp)
@@ -51,6 +50,9 @@ target_link_libraries(learn_test
   tensorboardclient
   tensorboard_logger  
   gtest_main)
+
+# Copy test resources
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/logging/resources/doge.png ${CMAKE_CURRENT_BINARY_DIR}/resources/doge.png COPYONLY)
 
 # Register test so that ctest and make test can run it.
 add_test(NAME test_learn_test COMMAND learn_test)

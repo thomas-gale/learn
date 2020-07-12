@@ -11,7 +11,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/test/learn_test",
             "args": [
-                "--gtest_filter=Logging.CanCreateTensorboardLogger"
+                "--gtest_filter=TensorBoardLoggerTest.*"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

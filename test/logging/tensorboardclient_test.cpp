@@ -2,6 +2,7 @@
 #include "learn/logging/summarywriter.h"
 
 namespace testlearn {
+    /*
     TEST(Logging, CanCreateSummaryWriter) {
         // Act / Assert
         ASSERT_NO_THROW(learn::SummaryWriter summaryWriter);        
@@ -32,5 +33,5 @@ namespace testlearn {
 
         // Assert
         ASSERT_TRUE(success);
-    }
+    }*/
 }
