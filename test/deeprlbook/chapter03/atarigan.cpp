@@ -30,7 +30,7 @@ namespace testlearn {
     }
 
     TEST(DRLChapter03, AtariGan) {
-        SummaryWriter writer;
+        /*SummaryWriter writer;
 
         std::vector<std::tuple<std::string, std::function<float(float)>>> funcs{
             { "Sin", [](float x){ return std::sin(x); } },
@@ -46,6 +46,6 @@ namespace testlearn {
                 bool success = writer.addScalar(std::get<0>(func), val, angle);
                 ASSERT_TRUE(success);
             }
-        }
+        }*/
     }
 }

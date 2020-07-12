@@ -31,14 +31,17 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 add_executable(learn_test
   hello/hellotorch_test.cpp
   environment/example_test.cpp
-  logging/tensorboardclient_test.cpp
+  logging/tensorboardclient_test.cpp # Deprecated.
+  logging/tensorboardlogger_test.cpp
   deeprlbook/chapter03/tensorboard.cpp
   deeprlbook/chapter03/atarigan.cpp)
 
 target_include_directories(learn_test 
   PRIVATE
+  ${CMAKE_CURRENT_BINARY_DIR}
   ${MSGPACK_DIR}/include
   ${SPDLOG_DIR}/include
+  ${TENSOR_LOG_DIR}/include
   ${ZMQCPP_DIR})
 
 target_link_libraries(learn_test
@@ -46,6 +49,7 @@ target_link_libraries(learn_test
   hellolearn
   gymclient
   tensorboardclient
+  tensorboard_logger  
   gtest_main)
 
 # Register test so that ctest and make test can run it.
