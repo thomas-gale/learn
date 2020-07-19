@@ -19,8 +19,8 @@ list(APPEND CMAKE_PREFIX_PATH "/usr/local/lib/libtorch")
 find_package(Torch REQUIRED)
 message(STATUS "Using torch version: ${Torch_VERSION}")
 
-# Add other third parties
-add_subdirectory(third_party)
+# Add libraries (submodules of third party and external libraries)
+add_subdirectory(lib)
 
 # Recurse into src.
 add_subdirectory(src)

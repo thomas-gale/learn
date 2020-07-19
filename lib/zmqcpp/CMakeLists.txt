@@ -1,4 +1,4 @@
-set(HEADER_LIST "${Learn_SOURCE_DIR}/third_party/zmqcpp/zmq.hpp")
+set(HEADER_LIST "${3P_DIR}/zmqcpp/zmq.hpp")
 
 add_library(zmqcpp
     ${HEADER_LIST})

@@ -1,5 +1,5 @@
-# Third parties.
-set(3P_DIR ${CMAKE_SOURCE_DIR}/third_party CACHE STRING "")
+# External and third party libraries.
+set(3P_DIR ${CMAKE_SOURCE_DIR}/lib CACHE STRING "")
 
 # Lightweight messaging kernel - https://github.com/zeromq/libzmq
 set(ZMQ_DIR ${3P_DIR}/libzmq CACHE STRING "")
