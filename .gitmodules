@@ -7,9 +7,6 @@
 [submodule "third_party/libzmq"]
 	path = third_party/libzmq
 	url = git@github.com:zeromq/libzmq.git
-[submodule "third_party/gymcpp"]
-	path = third_party/gymcpp
-	url = git@github.com:thomas-gale/gymcpp.git
 [submodule "third_party/tensorboard_logger"]
 	path = third_party/tensorboard_logger
 	url = git@github.com:thomas-gale/tensorboard_logger.git
