@@ -1,9 +1,13 @@
-#include "gtest/gtest.h"
 #include "learn/hellotorch.hpp"
+#include "gtest/gtest.h"
 
-namespace TestLearn {
-    TEST(HelloTorch, FirstTest) {
-        // Act
-        learn::hellotorch();
-    }
+namespace learn {
+namespace test {
+
+TEST(HelloTorch, FirstTest) {
+    // Act
+    hellotorch();
 }
+
+} // namespace test
+} // namespace learn

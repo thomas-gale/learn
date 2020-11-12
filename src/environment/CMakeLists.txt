@@ -18,6 +18,18 @@ find_package(Bullet REQUIRED)
 
 set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 
+# -- Library Environment -- 
+set(HEADER_LIST 
+    "${Learn_SOURCE_DIR}/include/learn/example.hpp")
+
+add_library(learn_environment
+Example.cpp)
+
+target_include_directories(learn_environment PUBLIC
+"${Learn_SOURCE_DIR}/include")
+
+# -- Executable Environment --
+
 add_executable(bullet_example
 BulletExample.cpp)
 

@@ -1,9 +1,13 @@
+#include "learn/example.hpp"
 #include "gtest/gtest.h"
-//#include "learn/example.h"
 
-namespace TestLearn {
-    TEST(GymClient, RunExample) {
-        // Act
-        //learn::example();
-    }
+namespace learn {
+namespace test {
+
+TEST(GymClient, RunExample) {
+    // Act
+    learn::example();
 }
+
+} // namespace test
+} // namespace learn
