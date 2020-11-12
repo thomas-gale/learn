@@ -3,8 +3,7 @@
 
 namespace learn {
 
-    void example();
-    
+void example();
 }
 
 #endif // LEARN_GYM_GYM_CLIENT_EXAMPLE_H_

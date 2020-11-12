@@ -2,7 +2,7 @@
 #define LEARN_HELLOTORCH_H_
 
 namespace learn {
-    void hellotorch();
-}
+void hellotorch();
+};
 
 #endif // LEARN_HELLOTORCH_H_

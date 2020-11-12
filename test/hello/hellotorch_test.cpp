@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "learn/hellotorch.h"
+#include "learn/hellotorch.hpp"
 
 namespace TestLearn {
     TEST(HelloTorch, FirstTest) {

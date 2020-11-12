@@ -1,4 +1,4 @@
-set(HEADER_LIST "${Learn_SOURCE_DIR}/include/learn/hellotorch.h")
+set(HEADER_LIST "${Learn_SOURCE_DIR}/include/learn/hellotorch.hpp")
 
 # hello learn is an automatic library
 add_library(hellolearn 
