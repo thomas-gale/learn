@@ -36,16 +36,16 @@ add_executable(learn_test
 
 target_include_directories(learn_test 
   PRIVATE
-  ${CMAKE_CURRENT_BINARY_DIR}
-  ${MSGPACK_DIR}/include
-  ${SPDLOG_DIR}/include
-  ${TENSOR_LOG_DIR}/include
-  ${ZMQCPP_DIR})
+  ${CMAKE_CURRENT_BINARY_DIR})
+  #${MSGPACK_DIR}/include
+  #${SPDLOG_DIR}/include
+  #${TENSOR_LOG_DIR}/include
+  #${ZMQCPP_DIR})
 
 target_link_libraries(learn_test
   PRIVATE
   hellolearn
-  gymclient
+  #gymclient
   tensorboard_logger  
   gtest_main)
 
