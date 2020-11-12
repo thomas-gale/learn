@@ -7,28 +7,28 @@ project(Learn
 # Project wide C++ standard
 set(CMAKE_CXX_STANDARD 17)
 
-# Locate protocol buffer library (used for all DTO encoding) - https://github.com/protocolbuffers/protobuf
+# -- Protocol buffers -- (used by tensorboard) - https://github.com/protocolbuffers/protobuf
 # (Built and located in /usr/lib/... during Docker environemnt setup)
 include(FindProtobuf)
 find_package(Protobuf REQUIRED)
 message(STATUS "Using protobuf version: ${Protobuf_VERSION}")
 
-# PyTorch (Facebook research's machine learning framework) - https://pytorch.org/
+# -- PyTorch -- (Facebook research's machine learning framework) - https://pytorch.org/
 # (Docker devcontainer should have already installed and configured this)
 list(APPEND CMAKE_PREFIX_PATH "/usr/local/lib/libtorch")
 find_package(Torch REQUIRED)
 message(STATUS "Using torch version: ${Torch_VERSION}")
 
+# -- Configure all build options for Corrade, Magnum and Magnum-Plugins --
+
 # Magnum Configuration
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/modules/" ${CMAKE_MODULE_PATH})
-
-# Configure all build options for Corrade, Magnum and Magnum-Plugins.
 
 # For easy release on Linux machine, set to static:
 # Remember that the host machine will still need libSDS2-2.0.so.0
 # So run something like `sudo apt install libsdl2-2.0`
-#set(BUILD_STATIC ON CACHE BOOL "" FORCE)
-#set(BUILD_PLUGINS_STATIC ON CACHE BOOL "" FORCE)
+set(BUILD_STATIC ON CACHE BOOL "" FORCE)
+set(BUILD_PLUGINS_STATIC ON CACHE BOOL "" FORCE)
 
 # -- File Loading --
 

@@ -11,29 +11,29 @@ find_package(Magnum REQUIRED
 find_package(MagnumIntegration REQUIRED
     Bullet
 )
-find_package(MagnumPlugins REQUIRED 
+find_package(MagnumPlugins REQUIRED
     TinyGltfImporter
 )
 find_package(Bullet REQUIRED)
 
 set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 
-add_executable(comp_geom
+add_executable(bullet_example
 BulletExample.cpp)
 
-target_link_libraries(comp_geom PRIVATE 
+target_link_libraries(bullet_example PRIVATE 
     Corrade::Main
     Magnum::Application
     Magnum::GL
     Magnum::Magnum
     Magnum::MeshTools
-    #Magnum::ObjImporter
+    Magnum::ObjImporter
     Magnum::Primitives
     Magnum::SceneGraph
     Magnum::Shaders
     Magnum::Trade
     MagnumIntegration::Bullet
     Bullet::Dynamics
-    #MagnumPlugins::TinyGltfImporter
+    MagnumPlugins::TinyGltfImporter
 )
 
