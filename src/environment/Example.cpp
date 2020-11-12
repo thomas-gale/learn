@@ -1,4 +1,4 @@
-#include "learn/example.hpp"
+#include "learn/Example.hpp"
 #include <iostream>
 
 namespace learn {

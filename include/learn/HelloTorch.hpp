@@ -3,6 +3,6 @@
 
 namespace learn {
 void hellotorch();
-};
+}
 
 #endif // LEARN_HELLOTORCH_H_

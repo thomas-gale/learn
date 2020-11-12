@@ -20,7 +20,7 @@ set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 
 # -- Library Environment -- 
 set(HEADER_LIST 
-    "${Learn_SOURCE_DIR}/include/learn/example.hpp")
+    "${Learn_SOURCE_DIR}/include/learn/Example.hpp")
 
 add_library(learn_environment
 Example.cpp)

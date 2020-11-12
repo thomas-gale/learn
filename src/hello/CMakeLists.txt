@@ -1,10 +1,10 @@
 set(HEADER_LIST 
-    "${Learn_SOURCE_DIR}/include/learn/hellotorch.hpp")
+    "${Learn_SOURCE_DIR}/include/learn/HelloTorch.hpp")
 
 # hello learn is an automatic library
 add_library(hellolearn 
     ${HEADER_LIST}
-    hellotorch.cpp
+    HelloTorch.cpp
 )
 
 target_compile_options(hellolearn PRIVATE -Wall -Wextra -pedantic)

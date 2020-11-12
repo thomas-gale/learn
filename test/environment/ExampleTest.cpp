@@ -1,12 +1,12 @@
-#include "learn/hellotorch.hpp"
+#include "learn/Example.hpp"
 #include "gtest/gtest.h"
 
 namespace learn {
 namespace test {
 
-TEST(HelloTorch, FirstTest) {
+TEST(GymClient, RunExample) {
     // Act
-    hellotorch();
+    learn::example();
 }
 
 } // namespace test
