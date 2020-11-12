@@ -4,7 +4,7 @@
         "${workspaceFolder}/include/**",
         "${workspaceFolder}/src/**",
         "${workspaceFolder}/test/**",
-        "${workspaceFolder}/third_party/**",
+        "${workspaceFolder}/lib/**",
         "${workspaceFolder}/build/test/googletest-src/googletest/include/**",
     ],
     "git.enableSmartCommit": true,
