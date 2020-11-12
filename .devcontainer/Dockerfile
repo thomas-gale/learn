@@ -30,7 +30,8 @@ RUN apt-get update \
         unzip wget git \
         build-essential gdb clang clang-format clang-tidy \
         python3-dev python3-pip python-opengl \
-        libopenmpi-dev zlib1g-dev libsm6 libxext6 libxrender-dev
+        libopenmpi-dev zlib1g-dev libsm6 libxext6 libxrender-dev \
+        libsdl2-dev
 
 # Install CMake binary
 RUN mkdir -p ~/temp \

@@ -13,3 +13,18 @@
 [submodule "lib/gymcpp"]
 	path = lib/gymcpp
 	url = git@github.com:thomas-gale/gymcpp.git
+[submodule "lib/corrade"]
+	path = lib/corrade
+	url = https://github.com/mosra/corrade.git
+[submodule "lib/magnum"]
+	path = lib/magnum
+	url = https://github.com/mosra/magnum.git
+[submodule "lib/magnum-plugins"]
+	path = lib/magnum-plugins
+	url = https://github.com/mosra/magnum-plugins.git
+[submodule "lib/magnum-integration"]
+	path = lib/magnum-integration
+	url = https://github.com/mosra/magnum-integration.git
+[submodule "lib/bullet3"]
+	path = lib/bullet3
+	url = https://github.com/bulletphysics/bullet3.git
