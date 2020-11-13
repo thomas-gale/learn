@@ -1,7 +1,6 @@
 FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
 
 # Global settings
-# Torch 1.4, only has Cuda 10.1 support (I think..)
 ENV CMAKE_VERSION=3.17.2
 ENV TORCH_CUDA=cu102
 ENV TORCH_VERSION=1.5.0
@@ -49,16 +48,6 @@ RUN cd ~/temp && wget https://download.pytorch.org/libtorch/$TORCH_CUDA/libtorch
 
 # Python packages just to run tensorboard
 RUN pip3 install numpy==1.19.0 pillow==7.1.2 six==1.12.0 tensorboard==2.2.2
-
-# Python packages for OpenAI Gym, box2d environment (for LunarLander) and CPU tensorflow    
-#RUN pip3 install numpy=1.19.0 pillow=7.1.2 six==1.12.0 torch torchvision tensorflow==1.14 tensorboard==2.2.2 zmq msgpack \
-#    && cd /usr/local \
-#    && git clone https://github.com/openai/baselines.git \
-#    && cd baselines && pip3 install -e . && cd .. \
-#    && git clone https://github.com/openai/gym.git \
-#    && cd gym \
-#    && pip3 install -e '.[box2d]' \
-#    && pip3 install -e '.[atari]'
 
 # Protocolbuffers & compiler
 # https://github.com/protocolbuffers/protobuf/blob/master/src/README.md#c-installation---unix
