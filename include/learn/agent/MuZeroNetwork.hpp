@@ -25,6 +25,7 @@ class Network : public torch::nn::Module {
     std::vector<float> getWeights();
 };
 
+// Fully connected concrete network implementation.
 class MuZeroFullyConnectedNetwork : public Network {
   public:
     MuZeroFullyConnectedNetwork(c10::ArrayRef<double> observationShape);
