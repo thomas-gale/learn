@@ -33,6 +33,8 @@ A personal, experimental dive learning how to build C++ based machine learning s
 - VCode + Devcontainers extension
 
 ### Startup
+- `git clone` (this repo)
+- `git submodule update --init --recursive`
 - Open directory in VSCode
 - Follow the 'Reopen in container prompt'
 - Enable things that pop up - like allowing C++ intellisense to use CMake
@@ -40,6 +42,7 @@ A personal, experimental dive learning how to build C++ based machine learning s
 ### Build
 - VSCode command pallette (ctrl+shft+p)
 - `CMake: Configure`
+- Choose kit `GCC for x86_64-linux-gnu 7.5.0`
 - `Cmake: Build`
 - The target selection, debug and run commands are available at the bottom of the screen in VSCode
 
