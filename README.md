@@ -24,5 +24,25 @@ A personal, experimental dive learning how to build C++ based machine learning s
 - Possibily give learn library similar structure to [ptan](https://github.com/Shmuma/ptan)?
 - Finally, do something cool (maybe with [b2a](https://github.com/thomas-gale/bits-to-atoms) - build in a learning agent into the service providers of the virtual factory marketplace with the reward function set to maximise profit...)
 
+## Development
+### You will need
+- Linux (we need a platform which can forward virtualised GPU into Docker container)
+- Docker
+- Nvidia GPU - with PPA drivers
+- https://github.com/NVIDIA/nvidia-docker
+- VCode + Devcontainers extension
+
+### Startup
+- Open directory in VSCode
+- Follow the 'Reopen in container prompt'
+- Enable things that pop up - like allowing C++ intellisense to use CMake
+
+### Build
+- VSCode command pallette (ctrl+shft+p)
+- `CMake: Configure`
+- `Cmake: Build`
+- The target selection, debug and run commands are available at the bottom of the screen in VSCode
+
+
 ## Architecture Notes
 ![learn-library-structure](https://user-images.githubusercontent.com/11990706/85264505-b08f4800-b468-11ea-8365-7c050780c4fa.png)
