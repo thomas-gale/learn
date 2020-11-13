@@ -1,11 +1,11 @@
-#ifndef __GYM_H__
-#define __GYM_H__
+#ifndef LEARN_ENV_GYM_H_
+#define LEARN_ENV_GYM_H_
 
 #include <memory>
 #include <vector>
 
 namespace learn {
-namespace env {
+namespace environment {
 
 struct Space {
     enum SpaceType {
@@ -15,8 +15,8 @@ struct Space {
 
     std::vector<float> sample(); // Random vector that belong to this space
 
-    std::vector<int> box_shape; // Similar to Caffe blob shape, for example {
-                                // 64, 96, 3 } for 96x64 rgb image.
+    std::vector<int> box_shape; // Similar to Caffe blob shape, for example
+                                // { 64, 96, 3 } for 96x64 rgb image.
     std::vector<float> box_high;
     std::vector<float> box_low;
 
@@ -53,7 +53,7 @@ class Client {
 
 extern std::shared_ptr<Client> client_create(const std::string& addr, int port);
 
-} // namespace env
+} // namespace environment
 } // namespace learn
 
-#endif // __GYM_H__
+#endif // LEARN_ENV_GYM_H__
