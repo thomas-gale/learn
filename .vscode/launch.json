@@ -24,20 +24,6 @@
                     "ignoreFailures": true
                 }
             ]
-        },
-        {
-            "name": "Environment Server",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceFolder}/src/environment/launch_gym_server.py",
-            "console": "integratedTerminal",
-            "envFile": "${workspaceFolder}/.env"
         }
-    ],
-    /*"compounds": [
-        {
-            "name": "Environment Server & Learn Tests",
-            "configurations": ["Environment Server", "Learn Tests"]
-        }
-    ]*/
+    ]
 }
