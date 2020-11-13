@@ -32,8 +32,7 @@ add_executable(learn_test
   hello/HelloTorchTest.cpp
   environment/BulletEnvironmentTest.cpp
   environment/BulletClientTest.cpp
-  logging/TensorboardLoggerTest.cpp
-  deeprlbook/chapter03/AtariGAN.cpp)
+  logging/TensorboardLoggerTest.cpp)
 
 
 target_include_directories(learn_test PRIVATE
