@@ -8,10 +8,11 @@
 namespace learn {
 namespace agent {
 
+// This is directly derived from https://github.com/werner-duvaud/muzero-general
 class MuZero {
   public:
     // C'tor - Inject the Environment created beforehand.
-    MuZero(std::shared_ptr<Environment> env);
+    MuZero(std::shared_ptr<environment::Environment> env);
 
     // Spawn ray workers and launch the training
     void train();
@@ -27,7 +28,7 @@ class MuZero {
     void diagnoseModel();
 
   private:
-    std::shared_ptr<Environment> env_;
+    std::shared_ptr<environment::Environment> env_;
 
     // Keep track of the training performance.
     void loggingLoop();

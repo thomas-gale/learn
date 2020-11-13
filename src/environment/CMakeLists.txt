@@ -19,10 +19,6 @@ find_package(Bullet REQUIRED)
 set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 
 # -- Library Environment -- 
-set(HEADER_LIST 
-    "${Learn_SOURCE_DIR}/include/learn/environment/Gym.hpp"
-    "${Learn_SOURCE_DIR}/include/learn/environment/BulletEnvironment.hpp"
-    "${Learn_SOURCE_DIR}/include/learn/environment/BulletClient.hpp")
 
 add_library(learn_environment
 BulletEnvironment.cpp

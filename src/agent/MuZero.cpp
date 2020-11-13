@@ -4,7 +4,7 @@ namespace learn {
 namespace agent {
 
 // MuZero C'tor - inject the environment.
-MuZero::MuZero(std::shared_ptr<Environment> env) : env_(env){};
+MuZero::MuZero(std::shared_ptr<environment::Environment> env) : env_(env){};
 
 } // namespace agent
 } // namespace learn
