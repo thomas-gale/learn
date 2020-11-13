@@ -17,6 +17,8 @@ class BulletEnvironment : public Environment {
     void monitor_start(const std::string& directory, bool force,
                        bool resume) override;
     void monitor_stop() override;
+  private:
+    // Bullet related internal state.
 };
 
 } // namespace environment
