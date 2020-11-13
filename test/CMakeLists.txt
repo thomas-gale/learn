@@ -32,6 +32,7 @@ add_executable(learn_test
   hello/HelloTorchTest.cpp
   environment/BulletEnvironmentTest.cpp
   environment/BulletClientTest.cpp
+  agent/MuZeroTest.cpp
   logging/TensorboardLoggerTest.cpp)
 
 
@@ -42,6 +43,7 @@ target_include_directories(learn_test PRIVATE
 target_link_libraries(learn_test PRIVATE
   hellolearn
   learn_environment
+  learn_agent
   tensorboard_logger  
   gtest_main)
 
