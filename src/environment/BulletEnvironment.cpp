@@ -1,4 +1,4 @@
-#include "learn/environment/Bullet.hpp"
+#include "learn/environment/BulletEnvironment.hpp"
 
 #include <Corrade/Containers/GrowableArray.h>
 #include <Corrade/Containers/Optional.h>
