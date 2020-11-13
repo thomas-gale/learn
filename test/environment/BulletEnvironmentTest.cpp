@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "learn/environment/BulletEnvironment.hpp"
+#include "gtest/gtest.h"
 
 namespace learn {
 namespace test {

@@ -1,5 +1,5 @@
-#ifndef LEARN_ENV_BULLET_H_
-#define LEARN_ENV_BULLET_H_
+#ifndef LEARN_ENV_BULLETENVIRONMENT_H_
+#define LEARN_ENV_BULLETENVIRONMENT_H_ 
 
 #include "learn/environment/Gym.hpp"
 
@@ -22,4 +22,4 @@ class BulletEnvironment : public Environment {
 } // namespace environment
 } // namespace learn
 
-#endif // LEARN_ENV_BULLET_H_
+#endif // LEARN_ENV_BULLETENVIRONMENT_H_ 

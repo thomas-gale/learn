@@ -31,15 +31,16 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 add_executable(learn_test
   hello/HelloTorchTest.cpp
   environment/BulletEnvironmentTest.cpp
+  environment/BulletClientTest.cpp
   logging/TensorboardLoggerTest.cpp
   deeprlbook/chapter03/AtariGAN.cpp)
 
-target_include_directories(learn_test 
-  PRIVATE
+
+target_include_directories(learn_test PRIVATE
+  "${Learn_SOURCE_DIR}/include"
   ${CMAKE_CURRENT_BINARY_DIR})
 
-target_link_libraries(learn_test
-  PRIVATE
+target_link_libraries(learn_test PRIVATE
   hellolearn
   learn_environment
   tensorboard_logger  
