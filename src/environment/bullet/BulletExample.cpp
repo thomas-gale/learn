@@ -54,9 +54,11 @@
 #include <Magnum/Trade/MeshData.h>
 #include <btBulletDynamicsCommon.h>
 
-namespace Magnum {
-namespace Examples {
+namespace learn {
+namespace environment {
+namespace bullet {
 
+using namespace Magnum;
 using namespace Math::Literals;
 
 typedef SceneGraph::Object<SceneGraph::MatrixTransformation3D> Object3D;
@@ -381,7 +383,8 @@ void BulletExample::mousePressEvent(MouseEvent& event) {
     }
 }
 
-} // namespace Examples
-} // namespace Magnum
+} // namespace bullet
+} // namespace environment
+} // namespace learn
 
-MAGNUM_APPLICATION_MAIN(Magnum::Examples::BulletExample)
+MAGNUM_APPLICATION_MAIN(learn::environment::bullet::BulletExample)

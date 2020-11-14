@@ -1,4 +1,4 @@
-#include "learn/environment/BulletClient.hpp"
+#include "learn/environment/bullet/BulletClient.hpp"
 #include "gtest/gtest.h"
 
 namespace learn {
@@ -6,7 +6,7 @@ namespace test {
 
 TEST(BulletClient, Create) {
     // Act
-    environment::BulletClient bulletClient;
+    environment::bullet::BulletClient bulletClient;
 
     // Assert
     // Not thrown
@@ -14,7 +14,7 @@ TEST(BulletClient, Create) {
 
 TEST(BulletClient, MakeDefaultEnvironment) {
     // Arrange
-    environment::BulletClient bulletClient;
+    environment::bullet::BulletClient bulletClient;
 
     // Act
     auto env = bulletClient.make("default");

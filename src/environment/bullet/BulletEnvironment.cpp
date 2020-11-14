@@ -1,5 +1,3 @@
-#include "learn/environment/BulletEnvironment.hpp"
-
 #include <Corrade/Containers/GrowableArray.h>
 #include <Corrade/Containers/Optional.h>
 #include <Corrade/Containers/Pointer.h>
@@ -25,23 +23,26 @@
 #include <Magnum/Trade/MeshData.h>
 #include <btBulletDynamicsCommon.h>
 
+#include "learn/environment/bullet/BulletEnvironment.hpp"
+
 namespace learn {
 namespace environment {
+namespace bullet {
 
-std::shared_ptr<Space> BulletEnvironment::action_space() {
-    return std::shared_ptr<Space>{};
+std::shared_ptr<gym::Space> BulletEnvironment::action_space() {
+    return std::shared_ptr<gym::Space>{};
 }
 
-std::shared_ptr<Space> BulletEnvironment::observation_space() {
-    return std::shared_ptr<Space>{};
+std::shared_ptr<gym::Space> BulletEnvironment::observation_space() {
+    return std::shared_ptr<gym::Space>{};
 }
 
-void BulletEnvironment::reset(State* save_initial_state_here) {
+void BulletEnvironment::reset(gym::State* save_initial_state_here) {
     // Running reset.
 }
 
 void BulletEnvironment::step(const std::vector<float>& action, bool render,
-                             State* save_state_here) {
+                             gym::State* save_state_here) {
     // Running step.
 }
 
@@ -54,5 +55,6 @@ void BulletEnvironment::monitor_stop() {
     // Stop montor
 }
 
+} // namespace bullet
 } // namespace environment
 } // namespace learn

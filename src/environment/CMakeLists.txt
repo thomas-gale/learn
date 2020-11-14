@@ -21,8 +21,8 @@ set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 # -- Library Environment -- 
 
 add_library(learn_environment
-BulletEnvironment.cpp
-BulletClient.cpp)
+bullet/BulletEnvironment.cpp
+bullet/BulletClient.cpp)
 
 target_include_directories(learn_environment PUBLIC
 "${Learn_SOURCE_DIR}/include")
@@ -45,7 +45,7 @@ target_link_libraries(learn_environment PRIVATE
 # -- Executable Environment --
 
 add_executable(bullet_example
-BulletExample.cpp)
+bullet/BulletExample.cpp)
 
 target_link_libraries(bullet_example PRIVATE 
     Corrade::Main

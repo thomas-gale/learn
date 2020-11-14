@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "learn/environment/Gym.hpp"
+#include "learn/environment/gym/Environment.hpp"
 
 namespace learn {
 namespace agent {
@@ -12,7 +12,7 @@ namespace agent {
 class MuZero {
   public:
     // C'tor - Inject the Environment created beforehand.
-    MuZero(std::shared_ptr<environment::Environment> env);
+    MuZero(std::shared_ptr<environment::gym::Environment> env);
 
     // Spawn ray workers and launch the training
     void train();
@@ -28,7 +28,7 @@ class MuZero {
     void diagnoseModel();
 
   private:
-    std::shared_ptr<environment::Environment> env_;
+    std::shared_ptr<environment::gym::Environment> env_;
 
     // Keep track of the training performance.
     void loggingLoop();
