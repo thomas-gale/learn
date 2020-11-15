@@ -34,6 +34,8 @@ std::vector<float> Space::sample() const {
     std::vector<float> res(boxHigh.size());
     // Box high and box low are already flattened to the shape and c'tor asserted that the size is the same.
     for (size_t i = 0; i < boxHigh.size(); ++i) {
+        std::uniform_real_distribution dist(boxLow[i], boxHigh[i]);
+        res[i] = dist(rng);
     }
     return res;
 }
