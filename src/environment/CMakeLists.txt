@@ -23,6 +23,7 @@ set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 add_library(learn_environment
 bullet/BasicBulletEnvironment.cpp
 bullet/BulletClient.cpp
+gym/State.cpp
 gym/Space.cpp
 )
 

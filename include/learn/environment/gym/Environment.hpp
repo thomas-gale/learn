@@ -13,17 +13,20 @@ namespace gym {
 
 class Environment {
   public:
-    virtual std::shared_ptr<Space> action_space() = 0;
-    virtual std::shared_ptr<Space> observation_space() = 0;
+    virtual std::shared_ptr<Space> actionSpace() const = 0;
+    virtual std::shared_ptr<Space> observationSpace() const = 0;
 
-    virtual void reset(State* save_initial_state_here) = 0;
+    // Returns a shared pointer to reset observation state.
+    virtual std::shared_ptr<State> reset() = 0;
 
-    virtual void step(const std::vector<float>& action, bool render,
-                      State* save_state_here) = 0;
+    // Step the environment with the action and returns shared pointer to new
+    // state.
+    virtual std::shared_ptr<State> step(const std::vector<float>& action,
+                                        bool render) = 0;
 
-    virtual void monitor_start(const std::string& directory, bool force,
+    virtual void monitorStart(const std::string& directory, bool force,
                                bool resume) = 0;
-    virtual void monitor_stop() = 0;
+    virtual void monitorStop() = 0;
 };
 
 } // namespace gym

@@ -24,35 +24,71 @@
 #include <btBulletDynamicsCommon.h>
 
 #include "learn/environment/bullet/BasicBulletEnvironment.hpp"
+#include "learn/environment/gym/State.hpp"
 
 namespace learn {
 namespace environment {
 namespace bullet {
 
-std::shared_ptr<gym::Space> BasicBulletEnvironment::action_space() {
-    return std::shared_ptr<gym::Space>{};
+BasicBulletEnvironment::BasicBulletEnvironment() {
+    actionSpace_ = std::make_shared<gym::Space>(
+        gym::Space::SpaceType::BOX, std::vector<int>{2},
+        std::vector<float>{1.0, 1.0}, std::vector<float>{-1.0, -1.0}, -1);
+    observationSpace_ = std::make_shared<gym::Space>(
+        gym::Space::SpaceType::BOX, std::vector<int>{2},
+        std::vector<float>{std::numeric_limits<float>::max(),
+                           std::numeric_limits<float>::max()},
+        std::vector<float>{std::numeric_limits<float>::min(),
+                           std::numeric_limits<float>::min()},
+        -1);
+    state_ = reset();
 }
 
-std::shared_ptr<gym::Space> BasicBulletEnvironment::observation_space() {
-    return std::shared_ptr<gym::Space>{};
+std::shared_ptr<gym::Space> BasicBulletEnvironment::actionSpace() const {
+    return actionSpace_;
 }
 
-void BasicBulletEnvironment::reset(gym::State* save_initial_state_here) {
-    // Running reset.
+std::shared_ptr<gym::Space> BasicBulletEnvironment::observationSpace() const {
+    return observationSpace_;
 }
 
-void BasicBulletEnvironment::step(const std::vector<float>& action, bool render,
-                             gym::State* save_state_here) {
-    // Running step.
+std::shared_ptr<gym::State> BasicBulletEnvironment::reset() {
+    // Running reset...
+
+    // Get the state from bullet
+    // Bullet reset things
+    float cubeX = 0;
+    float cubeY = 0;
+
+    // Target is middle (reward -ve mag of distance)
+    float reward = -1.0f * (std::abs(2.5f - cubeX) + std::abs(2.5f - cubeY));
+
+    // Update internal state to new.
+    state_ = std::make_unique<gym::State>(std::vector<float>{cubeX, cubeY},
+                                          reward, false, "Reset");
+
+    // Return a copy to the smart pointer for optional consumption by clients.
+    return state_;
 }
 
-void BasicBulletEnvironment::monitor_start(const std::string& directory, bool force,
-                                      bool resume) {
+std::shared_ptr<gym::State>
+BasicBulletEnvironment::step(const std::vector<float>& action, bool render) {
+    // Running step...
+
+    // Mutate state_
+
+    return state_;
+}
+
+void BasicBulletEnvironment::monitorStart(const std::string& directory,
+                                          bool force, bool resume) {
     // Start monitor
+    // We can use the Tensorboard implementation?
 }
 
-void BasicBulletEnvironment::monitor_stop() {
+void BasicBulletEnvironment::monitorStop() {
     // Stop montor
+    // We can use the Tensorboard implementation?
 }
 
 } // namespace bullet

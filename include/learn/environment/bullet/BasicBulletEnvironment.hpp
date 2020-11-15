@@ -11,18 +11,27 @@ namespace bullet {
 
 class BasicBulletEnvironment : public gym::Environment {
   public:
-    std::shared_ptr<gym::Space> action_space() override;
-    std::shared_ptr<gym::Space> observation_space() override;
+    BasicBulletEnvironment();
 
-    void reset(gym::State* save_initial_state_here) override;
-    void step(const std::vector<float>& action, bool render,
-              gym::State* save_state_here) override;
-    void monitor_start(const std::string& directory, bool force,
+    std::shared_ptr<gym::Space> actionSpace() const override;
+    std::shared_ptr<gym::Space> observationSpace() const override;
+
+    // On reset, the environment emmits a shared pointer for learning agents to
+    // grab.
+    std::shared_ptr<gym::State> reset() override;
+
+    // On step, the agent updates it's internal state and emits a shared pointer
+    // again (this may be inefficient)
+    std::shared_ptr<gym::State> step(const std::vector<float>& action,
+                                     bool render) override;
+    void monitorStart(const std::string& directory, bool force,
                        bool resume) override;
-    void monitor_stop() override;
+    void monitorStop() override;
 
   private:
-    // Bullet related internal state.
+    std::shared_ptr<gym::Space> actionSpace_;
+    std::shared_ptr<gym::Space> observationSpace_;
+    std::shared_ptr<gym::State> state_;
 };
 
 } // namespace bullet
