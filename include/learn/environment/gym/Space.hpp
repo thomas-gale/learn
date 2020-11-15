@@ -10,7 +10,7 @@ namespace gym {
 
 class Space {
   public:
-    enum SpaceType {
+    enum class SpaceType {
         DISCRETE,
         BOX,
     } type;
@@ -34,7 +34,7 @@ class Space {
           std::vector<float> boxLow, int discreetN);
 
     // Random flattened vector that belong to this space
-    std::vector<float> sample();
+    std::vector<float> sample() const;
 };
 
 } // namespace gym

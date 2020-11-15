@@ -1,3 +1,4 @@
+#include <exception>
 #include <memory>
 
 #include <Corrade/Containers/GrowableArray.h>
@@ -25,8 +26,8 @@
 #include <Magnum/Trade/MeshData.h>
 #include <btBulletDynamicsCommon.h>
 
-#include "learn/environment/bullet/BulletClient.hpp"
 #include "learn/environment/bullet/BasicBulletEnvironment.hpp"
+#include "learn/environment/bullet/BulletClient.hpp"
 #include "learn/environment/gym/Environment.hpp"
 
 namespace learn {
@@ -35,8 +36,11 @@ namespace bullet {
 
 std::shared_ptr<gym::Environment> BulletClient::make(const std::string& name) {
     // Right now we will only support some simple cube/primitive worlds
-    // TODO: Add options/check
-    return std::make_shared<BasicBulletEnvironment>();
+    if (name == "basic") {
+        return std::make_shared<BasicBulletEnvironment>();
+    } else {
+        throw new std::runtime_error("Unrecognised bullet environment name");
+    }
 }
 
 } // namespace bullet
