@@ -1,8 +1,8 @@
 #ifndef LEARN_ENV_GYM_SPACE_T_
 #define LEARN_ENV_GYM_SPACE_T_
 
-#include <vector>
 #include "learn/environment/gym/Space.hpp"
+#include <vector>
 
 namespace learn {
 namespace environment {
@@ -22,8 +22,6 @@ Space::flattenVector(const std::vector<std::vector<T>>& vec) {
     }
     return out;
 }
-
-
 
 } // namespace gym
 } // namespace environment
