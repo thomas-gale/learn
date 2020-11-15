@@ -1,3 +1,4 @@
+# Find Magnum stuff
 find_package(Corrade REQUIRED)
 find_package(Magnum REQUIRED 
     GL

@@ -27,6 +27,27 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
                  ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
                  EXCLUDE_FROM_ALL)
 
+# Find Magnum stuff
+find_package(Corrade REQUIRED)
+find_package(Magnum REQUIRED 
+    GL
+    MeshTools
+    ObjImporter
+    Sdl2Application
+    Shaders
+    SceneGraph
+    Trade
+)
+find_package(MagnumIntegration REQUIRED
+    Bullet
+)
+find_package(MagnumPlugins REQUIRED
+    TinyGltfImporter
+)
+find_package(Bullet REQUIRED)
+
+set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
+
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(learn_test
   hello/HelloTorchTest.cpp
@@ -46,7 +67,20 @@ target_link_libraries(learn_test PRIVATE
   learn_environment
   learn_agent
   tensorboard_logger  
-  gtest_main)
+  gtest_main
+  Corrade::Main
+  Magnum::Application
+  Magnum::GL
+  Magnum::Magnum
+  Magnum::MeshTools
+  Magnum::ObjImporter
+  Magnum::Primitives
+  Magnum::SceneGraph
+  Magnum::Shaders
+  Magnum::Trade
+  MagnumIntegration::Bullet
+  Bullet::Dynamics
+  MagnumPlugins::TinyGltfImporter)
 
 # Copy test resources
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/logging/resources/doge.png ${CMAKE_CURRENT_BINARY_DIR}/resources/doge.png COPYONLY)

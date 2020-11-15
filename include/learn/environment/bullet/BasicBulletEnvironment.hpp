@@ -4,6 +4,7 @@
 #include "learn/environment/gym/Environment.hpp"
 #include "learn/environment/gym/Space.hpp"
 #include "learn/environment/gym/State.hpp"
+#include <Magnum/Platform/Sdl2Application.h>
 
 namespace learn {
 namespace environment {
@@ -25,13 +26,16 @@ class BasicBulletEnvironment : public gym::Environment {
     std::shared_ptr<gym::State> step(const std::vector<float>& action,
                                      bool render) override;
     void monitorStart(const std::string& directory, bool force,
-                       bool resume) override;
+                      bool resume) override;
     void monitorStop() override;
 
   private:
     std::shared_ptr<gym::Space> actionSpace_;
     std::shared_ptr<gym::Space> observationSpace_;
     std::shared_ptr<gym::State> state_;
+
+    // Just a hack for now.
+    Magnum::Platform::Application* app_;
 };
 
 } // namespace bullet
