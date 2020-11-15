@@ -10,6 +10,7 @@ namespace bullet {
 
 class BulletClient : public gym::Client {
   public:
+    // Make the bullet environment - currently supported types: ["basic"]
     std::shared_ptr<gym::Environment> make(const std::string& name) override;
 };
 

@@ -1,4 +1,4 @@
-#include "learn/environment/bullet/BulletEnvironment.hpp"
+#include "learn/environment/bullet/BasicBulletEnvironment.hpp"
 #include "gtest/gtest.h"
 
 namespace learn {
@@ -6,7 +6,7 @@ namespace test {
 
 TEST(BulletEnvironment, Construct) {
     // Act
-    environment::bullet::BulletEnvironment bulletEnv;
+    environment::bullet::BasicBulletEnvironment bulletEnv;
 
     // Assert
     // Not thrown

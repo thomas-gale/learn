@@ -30,7 +30,7 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(learn_test
   hello/HelloTorchTest.cpp
-  environment/bullet/BulletEnvironmentTest.cpp
+  environment/bullet/BasicBulletEnvironmentTest.cpp
   environment/bullet/BulletClientTest.cpp
   agent/MuZeroTest.cpp
   logging/TensorboardLoggerTest.cpp)

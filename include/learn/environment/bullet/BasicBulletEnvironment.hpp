@@ -9,7 +9,7 @@ namespace learn {
 namespace environment {
 namespace bullet {
 
-class BulletEnvironment : public gym::Environment {
+class BasicBulletEnvironment : public gym::Environment {
   public:
     std::shared_ptr<gym::Space> action_space() override;
     std::shared_ptr<gym::Space> observation_space() override;

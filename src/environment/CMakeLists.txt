@@ -21,7 +21,7 @@ set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 # -- Library Environment -- 
 
 add_library(learn_environment
-bullet/BulletEnvironment.cpp
+bullet/BasicBulletEnvironment.cpp
 bullet/BulletClient.cpp)
 
 target_include_directories(learn_environment PUBLIC

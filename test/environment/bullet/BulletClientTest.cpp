@@ -12,12 +12,12 @@ TEST(BulletClient, Create) {
     // Not thrown
 }
 
-TEST(BulletClient, MakeDefaultEnvironment) {
+TEST(BulletClient, MakeBasicEnvironment) {
     // Arrange
     environment::bullet::BulletClient bulletClient;
 
     // Act
-    auto env = bulletClient.make("default");
+    auto env = bulletClient.make("basic");
 
     // Assert
     EXPECT_NE(env, nullptr);

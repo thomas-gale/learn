@@ -23,35 +23,35 @@
 #include <Magnum/Trade/MeshData.h>
 #include <btBulletDynamicsCommon.h>
 
-#include "learn/environment/bullet/BulletEnvironment.hpp"
+#include "learn/environment/bullet/BasicBulletEnvironment.hpp"
 
 namespace learn {
 namespace environment {
 namespace bullet {
 
-std::shared_ptr<gym::Space> BulletEnvironment::action_space() {
+std::shared_ptr<gym::Space> BasicBulletEnvironment::action_space() {
     return std::shared_ptr<gym::Space>{};
 }
 
-std::shared_ptr<gym::Space> BulletEnvironment::observation_space() {
+std::shared_ptr<gym::Space> BasicBulletEnvironment::observation_space() {
     return std::shared_ptr<gym::Space>{};
 }
 
-void BulletEnvironment::reset(gym::State* save_initial_state_here) {
+void BasicBulletEnvironment::reset(gym::State* save_initial_state_here) {
     // Running reset.
 }
 
-void BulletEnvironment::step(const std::vector<float>& action, bool render,
+void BasicBulletEnvironment::step(const std::vector<float>& action, bool render,
                              gym::State* save_state_here) {
     // Running step.
 }
 
-void BulletEnvironment::monitor_start(const std::string& directory, bool force,
+void BasicBulletEnvironment::monitor_start(const std::string& directory, bool force,
                                       bool resume) {
     // Start monitor
 }
 
-void BulletEnvironment::monitor_stop() {
+void BasicBulletEnvironment::monitor_stop() {
     // Stop montor
 }
 
