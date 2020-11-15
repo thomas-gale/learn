@@ -8,24 +8,40 @@ namespace learn {
 namespace environment {
 namespace gym {
 
-struct Space {
+class Space {
+  public:
     enum SpaceType {
         DISCRETE,
         BOX,
     } type;
 
-    std::vector<float> sample(); // Random vector that belong to this space
+    // boxShape - E.g. { 64, 96, 3 } for 96x64 rgb image.
+    std::vector<int> boxShape;
+    std::vector<float> boxHigh;
+    std::vector<float> boxLow;
+    int discreetN;
 
-    std::vector<int> box_shape; // Similar to Caffe blob shape, for example
-                                // { 64, 96, 3 } for 96x64 rgb image.
-    std::vector<float> box_high;
-    std::vector<float> box_low;
+    // Utiltity function to flatten vector base case.
+    static std::vector<float> flattenVector(const std::vector<float>& vec);
 
-    int discreet_n;
+    // Utiltity function to flatten vector (using recursive template).
+    template <class T>
+    static std::vector<float> flattenVector(const std::vector<std::vector<T>>& vec);
+
+    // C'tor - boxHigh and boxLow should be flattened sample ranges with length
+    // = product of boxShape values.
+    Space(SpaceType type, std::vector<int> boxShape, std::vector<float> boxHigh,
+          std::vector<float> boxLow, int discreetN);
+
+    // Random flattened vector that belong to this space
+    std::vector<float> sample();
 };
 
 } // namespace gym
 } // namespace environment
 } // namespace learn
+
+// Template implementations
+#include "learn/environment/gym/Space.tpp"
 
 #endif // LEARN_ENV_GYM_SPACE_H_

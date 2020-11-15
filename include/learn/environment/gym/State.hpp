@@ -8,12 +8,15 @@ namespace learn {
 namespace environment {
 namespace gym {
 
-struct State {
+class State {
+public:
     std::vector<float>
         observation; // get observation_space() to make sense of this data
     float reward;
     bool done;
     std::string info;
+
+    State(std::vector<float> observation, float reward, bool done, std::string info);
 };
 
 } // namespace gym

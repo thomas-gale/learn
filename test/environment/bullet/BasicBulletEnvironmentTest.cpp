@@ -2,6 +2,8 @@
 #include "gtest/gtest.h"
 
 namespace learn {
+namespace environment {
+namespace bullet {
 namespace test {
 
 TEST(BulletEnvironment, Construct) {
@@ -13,4 +15,6 @@ TEST(BulletEnvironment, Construct) {
 }
 
 } // namespace test
+} // namespace bullet
+} // namespace environment
 } // namespace learn

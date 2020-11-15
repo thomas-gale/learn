@@ -1,5 +1,5 @@
-#ifndef LEARN_ENV_BULLET_BULLETENVIRONMENT_H_
-#define LEARN_ENV_BULLET_BULLETENVIRONMENT_H_
+#ifndef LEARN_ENV_BULLET_BASICBULLETENVIRONMENT_H_
+#define LEARN_ENV_BULLET_BASICBULLETENVIRONMENT_H_
 
 #include "learn/environment/gym/Environment.hpp"
 #include "learn/environment/gym/Space.hpp"
@@ -29,4 +29,4 @@ class BasicBulletEnvironment : public gym::Environment {
 } // namespace environment
 } // namespace learn
 
-#endif // LEARN_ENV_BULLET_BULLETENVIRONMENT_H_
+#endif // LEARN_ENV_BULLET_BASICBULLETENVIRONMENT_H_

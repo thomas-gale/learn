@@ -32,6 +32,7 @@ add_executable(learn_test
   hello/HelloTorchTest.cpp
   environment/bullet/BasicBulletEnvironmentTest.cpp
   environment/bullet/BulletClientTest.cpp
+  environment/gym/SpaceTest.cpp
   agent/MuZeroTest.cpp
   logging/TensorboardLoggerTest.cpp)
 

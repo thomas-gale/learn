@@ -22,7 +22,9 @@ set_directory_properties(PROPERTIES CORRADE_USE_PEDANTIC_FLAGS ON)
 
 add_library(learn_environment
 bullet/BasicBulletEnvironment.cpp
-bullet/BulletClient.cpp)
+bullet/BulletClient.cpp
+gym/Space.cpp
+)
 
 target_include_directories(learn_environment PUBLIC
 "${Learn_SOURCE_DIR}/include")
