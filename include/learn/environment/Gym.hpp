@@ -31,6 +31,9 @@ struct State {
     std::string info;
 };
 
+// Action space representation
+typedef std::vector<float>& Action;
+
 class Environment {
   public:
     virtual std::shared_ptr<Space> action_space() = 0;
@@ -38,7 +41,7 @@ class Environment {
 
     virtual void reset(State* save_initial_state_here) = 0;
 
-    virtual void step(const std::vector<float>& action, bool render,
+    virtual void step(const Action action, bool render,
                       State* save_state_here) = 0;
 
     virtual void monitor_start(const std::string& directory, bool force,
