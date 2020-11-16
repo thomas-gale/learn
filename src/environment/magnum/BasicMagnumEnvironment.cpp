@@ -5,6 +5,11 @@ namespace environment {
 namespace magnum {
 
 BasicMagnumEnvironment::BasicMagnumEnvironment() {
+    // Configure and initialise magnum window.
+
+    // TODO
+
+    // Init gym state data.
     actionSpace_ = std::make_shared<gym::Space>(
         gym::Space::SpaceType::BOX, std::vector<int>{2},
         std::vector<float>{1.0, 1.0}, std::vector<float>{-1.0, -1.0}, -1);
@@ -15,7 +20,13 @@ BasicMagnumEnvironment::BasicMagnumEnvironment() {
         std::vector<float>{std::numeric_limits<float>::min(),
                            std::numeric_limits<float>::min()},
         -1);
-    state_ = reset();
+    state_ = reset();    
+}
+
+BasicMagnumEnvironment::~BasicMagnumEnvironment() {
+    // Destroy and shutdown the magnum window.
+
+    // TODO
 }
 
 
@@ -28,6 +39,7 @@ std::shared_ptr<gym::Space> BasicMagnumEnvironment::observationSpace() const {
 }
 
 std::shared_ptr<gym::State> BasicMagnumEnvironment::reset() {
+    // Reset state of environment
     // Return a copy to the smart pointer for optional consumption by clients.
     return state_;
 }

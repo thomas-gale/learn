@@ -13,9 +13,24 @@ namespace magnum {
 
 class BasicMagnumEnvironment : public gym::Environment {
   public:
+    // Construct the magnum environment and initialise window.
     BasicMagnumEnvironment();
 
+    // Destruct magnum environment and destroy window.
+    ~BasicMagnumEnvironment();
+
+    // Suppressing copy semantics for now.
+    BasicMagnumEnvironment(const BasicMagnumEnvironment& other) = delete;
+    BasicMagnumEnvironment& operator=(const BasicMagnumEnvironment* other) = delete;
+
+    // Suppressing move semantics for now.
+    BasicMagnumEnvironment(BasicMagnumEnvironment&& other) = delete;
+    BasicMagnumEnvironment& operator=(BasicMagnumEnvironment&& other) = delete;
+
+    // Get the action space for the environment.
     std::shared_ptr<gym::Space> actionSpace() const override;
+
+    // Get the observation space for the environment.
     std::shared_ptr<gym::Space> observationSpace() const override;
 
     // On reset, the environment emmits a shared pointer for learning agents to
