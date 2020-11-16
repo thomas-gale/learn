@@ -4,9 +4,14 @@
 namespace learn {
 namespace test {
 
-TEST(HelloTorch, FirstTest) {
+TEST(HelloTorch, Tensor) {
     // Act
     hellotorch();
+}
+
+TEST(HelloTorch, CudaGPU) {
+    // Act
+    hellotorchgpu();
 }
 
 } // namespace test
