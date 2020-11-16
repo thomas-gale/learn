@@ -26,6 +26,7 @@ bullet/BasicBulletEnvironment.cpp
 bullet/BulletClient.cpp
 gym/State.cpp
 gym/Space.cpp
+magnum/BasicMagnumEnvironment.cpp
 )
 
 target_include_directories(learn_environment PUBLIC
