@@ -4,6 +4,7 @@
 #include "learn/environment/gym/Environment.hpp"
 #include "learn/environment/gym/Space.hpp"
 #include "learn/environment/gym/State.hpp"
+#include <Magnum/Platform/GLContext.h>
 #include <Magnum/Platform/Sdl2Application.h>
 
 namespace learn {
@@ -13,6 +14,7 @@ namespace bullet {
 class BasicBulletEnvironment : public gym::Environment {
   public:
     BasicBulletEnvironment();
+    ~BasicBulletEnvironment();
 
     std::shared_ptr<gym::Space> actionSpace() const override;
     std::shared_ptr<gym::Space> observationSpace() const override;
@@ -35,6 +37,7 @@ class BasicBulletEnvironment : public gym::Environment {
     std::shared_ptr<gym::State> state_;
 
     // Just a hack for now.
+    //Magnum::Platform::GLContext context_;
     Magnum::Platform::Application* app_;
 };
 

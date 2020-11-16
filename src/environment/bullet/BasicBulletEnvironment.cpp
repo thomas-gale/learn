@@ -1,9 +1,14 @@
+#include <chrono>
+#include <thread>
+
+#include "SDL.h"
 #include <Corrade/Containers/GrowableArray.h>
 #include <Corrade/Containers/Optional.h>
 #include <Corrade/Containers/Pointer.h>
 #include <Magnum/BulletIntegration/DebugDraw.h>
 #include <Magnum/BulletIntegration/Integration.h>
 #include <Magnum/BulletIntegration/MotionState.h>
+#include <Magnum/GL/Context.h>
 #include <Magnum/GL/DefaultFramebuffer.h>
 #include <Magnum/GL/Mesh.h>
 #include <Magnum/GL/Renderer.h>
@@ -11,6 +16,7 @@
 #include <Magnum/Math/Constants.h>
 #include <Magnum/MeshTools/Compile.h>
 #include <Magnum/MeshTools/Transform.h>
+#include <Magnum/Platform/GLContext.h>
 #include <Magnum/Platform/Sdl2Application.h>
 #include <Magnum/Primitives/Cube.h>
 #include <Magnum/Primitives/UVSphere.h>
@@ -140,7 +146,7 @@ class RigidBody : public Object3D {
     Containers::Pointer<btRigidBody> _bRigidBody;
 };
 
-// C'tor for the BulletExample
+// C'tor for the basic bullet magnum application.
 BasicBulletApplication::BasicBulletApplication(const Arguments& arguments)
     : Platform::Application(arguments, NoCreate) {
     /* Try 8x MSAA, fall back to zero samples if not possible. Enable only 2x
@@ -152,6 +158,7 @@ BasicBulletApplication::BasicBulletApplication(const Arguments& arguments)
             .setSize(conf.size(), dpiScaling);
         GLConfiguration glConf;
         glConf.setSampleCount(dpiScaling.max() < 2.0f ? 8 : 2);
+
         if (!tryCreate(conf, glConf))
             create(conf, glConf.setSampleCount(0));
     }
@@ -291,7 +298,18 @@ void BasicBulletApplication::drawEvent() {
 
 // ---------------------- ENV
 
+// C'tor
 BasicBulletEnvironment::BasicBulletEnvironment() {
+    // Context faff.
+    //Platform::GLContext context;
+    //Platform::GLContext::makeCurrent(&context);
+
+    // Internal bullet magnum application setup.
+    // Assigning a raw pointer on free store to dangle is *NOT* what we should
+    // do :)
+    int argc = 0;
+    app_ = new BasicBulletApplication({argc, nullptr});
+
     actionSpace_ = std::make_shared<gym::Space>(
         gym::Space::SpaceType::BOX, std::vector<int>{2},
         std::vector<float>{1.0, 1.0}, std::vector<float>{-1.0, -1.0}, -1);
@@ -303,6 +321,36 @@ BasicBulletEnvironment::BasicBulletEnvironment() {
                            std::numeric_limits<float>::min()},
         -1);
     state_ = reset();
+}
+
+// D'tor
+BasicBulletEnvironment::~BasicBulletEnvironment() {
+
+    // SDL_GLContext context = app_->glContext();
+    // SDL_Window* win = app_->window();
+
+    // SDL_GL_DeleteContext(context);
+    // SDL_DestroyWindow(win);
+    // SDL_Quit();
+
+    // delete app_;
+    // Magnum::GL::Context
+
+    // Platform::GLContext::makeCurrent(nullptr);
+
+    // app_->con
+    SDL_GLContext context = app_->glContext();
+    SDL_Window* win = app_->window();
+
+    SDL_GL_DeleteContext(context);
+    SDL_DestroyWindow(win);
+    SDL_Quit();
+
+    // Trying to reset the GL internal state in magnum
+    //GL::Context::resetState();
+
+    // LEAK!!!!!
+    app_ = nullptr;
 }
 
 std::shared_ptr<gym::Space> BasicBulletEnvironment::actionSpace() const {
@@ -317,15 +365,15 @@ std::shared_ptr<gym::State> BasicBulletEnvironment::reset() {
     // Running reset...
 
     // This is wrenched out of the run wrapper macro for magnum
-    int argc = 1;
-    std::vector<char*> argv{
-        "/workspaces/learn/build/Debug/bin/learn_tests"};
-    Magnum::Platform::Sdl2Application::Arguments dummyArgs(argc, &argv[0]);
+    // int argc = 0;
+    // std::vector<char*> argv{"/workspaces/learn/build/Debug/bin/learn_tests"};
+    // Magnum::Platform::Sdl2Application::Arguments dummyArgs(argc, &argv[0]);
 
-    app_ = new BasicBulletApplication(dummyArgs);
-    app_->exec();
+    // Faffing with GL contexts, trying to make magnum happy to switch to new
+    // Run one step of application main
+    // app_->mainLoopIteration();
 
-    // Get the state from bullet
+    // TODO - Set intial state of bullet simulation.
     // Bullet reset things
     float cubeX = 0;
     float cubeY = 0;
@@ -344,6 +392,7 @@ std::shared_ptr<gym::State> BasicBulletEnvironment::reset() {
 std::shared_ptr<gym::State>
 BasicBulletEnvironment::step(const std::vector<float>& action, bool render) {
     // Running step...
+    app_->mainLoopIteration();
 
     // Mutate state_
 
