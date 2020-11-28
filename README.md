@@ -24,13 +24,7 @@ A personal, experimental dive learning how to build C++ based machine learning s
 - Possibily give learn library similar structure to [ptan](https://github.com/Shmuma/ptan)?
 - Finally, do something cool (maybe with [b2a](https://github.com/thomas-gale/bits-to-atoms) - build in a learning agent into the service providers of the virtual factory marketplace with the reward function set to maximise profit...)
 
-## Development
-### You will need
-- Linux (we need a platform which can forward virtualised GPU into Docker container)
-- Docker
-- Nvidia GPU - with PPA drivers
-- https://github.com/NVIDIA/nvidia-docker
-- VCode + Devcontainers extension
+## [Development Setup](https://gist.github.com/thomas-gale/70987288d4aed1b6e6b9086341a55fa2)
 
 ### Startup
 - `git clone` (this repo)
